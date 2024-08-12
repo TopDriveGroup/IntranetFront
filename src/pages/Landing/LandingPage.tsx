@@ -5,9 +5,9 @@ import styles from './styles.module.css';
 function LandingPage() {
 
     return (
-        <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between overflow-hidden overflow-y-auto`}>
+        <div>
             <NavBar />
-            <div className='d-flex'>
+            <div className={styles.container}>
                 <div className='d-flex'>
                     Inicio
                 </div>
