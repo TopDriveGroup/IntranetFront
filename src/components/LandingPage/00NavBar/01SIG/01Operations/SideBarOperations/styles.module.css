@@ -11,6 +11,12 @@
     height: 35px;
     width: 100%;
 }
+.icon__Back, .button__Back {
+    color: #e4002b;
+}
+.icon__Back:hover, .button__Back:hover {
+    border-bottom: 2px solid #e4002b;
+}
 .container__Icon {
     margin: 0 5px 0 0;
     height: 35px;
