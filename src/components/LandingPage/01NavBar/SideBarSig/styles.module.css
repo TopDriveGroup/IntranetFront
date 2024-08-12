@@ -1,0 +1,38 @@
+.container {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    top: 110px;
+    height: calc(100vh - 150px);
+    min-width: 310px;
+}
+.container__Component {
+    width: 300px;
+}
+.container__Section {
+    height: 35px;
+    width: 100%;
+}
+.container__Icon {
+    margin: 0 5px 0 0;
+    height: 35px;
+    width: 20px;
+}
+.icon__Deployment {
+    color: #212322;
+    font-size: 20px;
+}
+.section {
+    height: 35px;
+    width: 100%;
+}
+.icon__Section {
+    color: #e4002b;
+    font-size: 20px;
+}
+.link__SideBar {
+    color: #212322;
+    width: 100%;
+}
+.active {
+    border-left: 5px solid red;
+    background: #e9ecef;
+}

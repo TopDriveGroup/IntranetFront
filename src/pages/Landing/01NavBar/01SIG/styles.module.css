@@ -1,0 +1,9 @@
+.container {
+    margin: 110px 0 0 0;
+    width: 100%;
+}
+.title {
+    color: #e4002b;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

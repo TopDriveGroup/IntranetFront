@@ -1,0 +1,229 @@
+.container {
+    height: 110px;
+    width: 100%;
+    box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.2);
+    background: white;
+    z-index: 3;
+}
+
+/* Contenedor de la PreNavBar */
+.container__Pre_NavBar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 40px;
+    width: 100%;
+    color: #495057;
+}
+.pre__NavBar {
+    width: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.container__Language_Phone_Lines {
+    height: 40px;
+}
+.container__Language {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    height: 40px;
+}
+.container__Icon_Language {
+    height: 20px;
+    width: 20px;
+}
+.text__Language {
+    width: 60px;
+}
+
+/* MENU DE SELECCION DEL IDIOMA */
+.dropdown__Language {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    background: white;
+    z-index: 1;
+    top: 0px;
+    left: 122px;
+}
+.language__Button {
+    cursor: pointer;
+    color: #495057;
+}
+.language__Button:hover {
+    color: #e4002b;
+}
+.language__Selected {
+    font-weight: 600;
+    color: #e4002b;
+}
+.container__Phone_Lines {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    height: 40px;
+}
+.ecommerce {
+    height: 40px;
+}
+.register {
+    font-weight: 400;
+    color: #495057;
+    height: 40px;
+    min-width: 80px;
+}
+.register:hover {
+    color: #e4002b;
+}
+.login {
+    font-weight: 600;
+    height: 40px;
+    color: #e4002b;
+}
+.icon__User {
+    font-size: 25px;
+    color: #e4002b;
+    margin: 0 -5px 0 0;
+}
+.title__Ecommerce {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    height: 40px;
+    color: #e4002b;
+    font-weight: 700;
+}
+.title__Ecommerce:hover {
+    color: white;
+    font-weight: 700;
+    background: #e4002b;
+}
+
+/* NAVBAR */
+.container__Navbar {
+    height: 70px;
+    width: 100%;
+    padding: 0 20px;
+}
+.container__Logo {
+    height: 70px;
+    min-width: 200px;
+}
+.logo {
+    width: 180px;
+}
+
+/* PAGINAS DE NAVEGACION */
+.home, 
+.aboutUs, .link__Industrie, .aboutUs__Industries_We_Serve,
+.products,
+.quotation,
+.pqrf,
+.contactUs {
+    color: #495057;
+    padding: 0 10px;
+    font-weight: 400;
+}
+.dropdown__Menu {
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    background: white;
+    z-index: 1;
+    top: 47px;
+    height: 255px;
+    width: 885px;
+}
+.container__Industrie {
+    border: 1px solid #fff;
+    height: 110px;
+    width: 120px;
+}
+.container__Industrie:hover {
+    border: 1px solid #e4002b;
+}
+.container__Logo__Industrie {
+    height: 70px;
+    width: 120px;
+}
+.logo__Industrie {
+    max-height: 55px;
+    max-width: 55px;
+}
+.title__Industrie {
+    font-size: 13px;
+}
+.title__Industrie:hover {
+    color: #e4002b;
+}
+.active {
+    color: #e4002b;
+    margin: 5px 0 0 0;
+    font-weight: 600;
+    border-bottom: 5px solid #e4002b;
+}
+.active__Industrie {
+    border: 1px solid #e4002b;
+    overflow: hidden;
+}
+.active__Link {
+    color: #e4002b;
+    margin: 5px 0 0 0;
+    font-weight: 600;
+}
+.container__Language:hover, .home:hover, .aboutUs:hover, .link__Industrie:hover, .aboutUs__Industries_We_Serve:hover, .products:hover, .quotation:hover, .pqrf:hover, .contactUs:hover {
+    color: #e4002b;
+    cursor: pointer;
+}
+.button__Hamburguer {
+    display: none;
+}
+
+
+/* ---------- RESPONSIVE (650 PX) ---------- */
+@media screen and (max-width: 970px) {
+    .container {
+        width: 100%;
+    }
+    .pre__NavBar {
+        max-width: 100%;
+    }
+    .container__Links_PreNavBar {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .home, 
+    .aboutUs, .link__Industrie, .aboutUs__Industries_We_Serve,
+    .products,
+    .quotation,
+    .pqrf,
+    .contactUs {
+        margin: 5px 0;
+        color: #fff;
+    }
+    .menu {
+        position: absolute;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        top: 110px;
+        left: 0;
+        flex-flow: column nowrap;
+        flex-direction: column;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.9);
+        overflow: hidden;
+        transition: all 500ms ease;
+    }
+    .active {
+        color: white;
+    }
+    .active__Menu_Hamburguer {
+        padding: 30px 0;
+        opacity: 1;
+    }
+    .button__Hamburguer {
+        background: none;
+        display: block;
+        cursor: pointer;
+    }
+    .icon__Hamburguer {
+        font-size: 30px;
+        transition: 300ms all ease;
+    }
+    .icon__Hamburguer:hover {
+        transform: scale(1.1);
+    }
+}
