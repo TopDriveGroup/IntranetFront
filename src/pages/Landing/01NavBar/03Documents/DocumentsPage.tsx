@@ -1,4 +1,4 @@
-import NavBar from '../../../../components/LandingPage/01NavBar/NavBar';
+import NavBar from '../../../../components/LandingPage/00NavBar/NavBar';
 import Footer from '../../../../components/LandingPage/Footer/Footer';
 import styles from './styles.module.css';
 
