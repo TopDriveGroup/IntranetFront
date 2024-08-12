@@ -68,12 +68,21 @@ function NavBar() {
                 <Link to="/" className={`${styles.container__Logo} d-flex align-items-center justify-content-center`}>
                     <img src={LogoTopDrive} alt="Logo Top Drive Group" className={`${styles.logo} `} />
                 </Link>
-
                 <div className={`${styles.menu} d-flex align-items-center justify-content-center`} >
-                    <Link to="/sig" className={`${styles.home} ${location.pathname === '/sig' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/sig"
+                        className={`${styles.home}
+                        ${(location.pathname === '/sig' ||
+                        location.pathname === '/sig/policies' ||
+                        location.pathname === '/sig/forms' ||
+                        location.pathname === '/sig/procedures' ||
+                        location.pathname === '/sig/registers' ||
+                        location.pathname === '/sig/indicators' ?
+                        styles.active : '')}
+                        d-flex align-items-center justify-content-center text-decoration-none`}
+                    >
                         SIG
                     </Link>
-                    <Link to="/about-us" className={`${styles.home} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/about-us" className={`${styles.home} ${location.pathname === '/about-us' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Nosotros
                     </Link>
                     <Link to="/documents" className={`${styles.aboutUs} ${location.pathname === '/documents' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
