@@ -17,6 +17,7 @@ import ProceduresPage from './pages/Landing/01NavBar/01SIG/01Operations/03Operat
 import RegistersPage from './pages/Landing/01NavBar/01SIG/01Operations/04OperationRegisters/OperationRegistersPage';
 import IndicatorsPage from './pages/Landing/01NavBar/01SIG/01Operations/05OperationIndicators/OperationIndicatorsPage';
 // TECNOLOGIA
+import TecnologyPage from './pages/Landing/01NavBar/01SIG/02Tecnology/TecnologyPage';
 // CALIDAD Y ADMIN
 // FINANCIERO
 // MARKETING
@@ -33,7 +34,7 @@ import Error404 from './pages/Error404/Error404';
 
 function App() {
 
-  return (
+    return (
         <div>
             <BrowserRouter>
                 <WhatsApp />
@@ -42,12 +43,15 @@ function App() {
                     {/* ----------LANDINGPAGE---------- */}
                     <Route path='/' element={<LandingPage />} />
                     <Route path='/sig' element={<SIGPage />} />
+                    {/* ----------SIG OPERACIONES---------- */}
                     <Route path='/sig/operations' element={<OperationsPage />} />
-                    <Route path='/sig/policies' element={<PoliciesPage />} />
-                    <Route path='/sig/forms' element={<FormsPage />} />
-                    <Route path='/sig/procedures' element={<ProceduresPage />} />
-                    <Route path='/sig/registers' element={<RegistersPage />} />
-                    <Route path='/sig/indicators' element={<IndicatorsPage />} />
+                    <Route path='/sig/operations/policies' element={<PoliciesPage />} />
+                    <Route path='/sig/operations/forms' element={<FormsPage />} />
+                    <Route path='/sig/operations/procedures' element={<ProceduresPage />} />
+                    <Route path='/sig/operations/registers' element={<RegistersPage />} />
+                    <Route path='/sig/operations/indicators' element={<IndicatorsPage />} />
+                    {/* ----------SIG TECNOLOGIA---------- */}
+                    <Route path='/sig/tecnology' element={<TecnologyPage />} />
 
                     <Route path='/about-us' element={<AboutUsPage />} />
                     <Route path='/documents' element={<DocumentsPage />} />
@@ -61,7 +65,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
         </div>
-  )
+    )
 }
 
-export default App
+export default App;

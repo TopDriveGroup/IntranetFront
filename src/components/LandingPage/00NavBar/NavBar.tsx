@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 //ELEMENTOS DEL COMPONENTE
@@ -72,11 +71,12 @@ function NavBar() {
                     <Link to="/sig"
                         className={`${styles.home}
                         ${(location.pathname === '/sig' ||
-                        location.pathname === '/sig/policies' ||
-                        location.pathname === '/sig/forms' ||
-                        location.pathname === '/sig/procedures' ||
-                        location.pathname === '/sig/registers' ||
-                        location.pathname === '/sig/indicators' ?
+                        location.pathname === '/sig/operations' ||
+                        location.pathname === '/sig/operations/policies' ||
+                        location.pathname === '/sig/operations/forms' ||
+                        location.pathname === '/sig/operations/procedures' ||
+                        location.pathname === '/sig/operations/registers' ||
+                        location.pathname === '/sig/operations/indicators' ?
                         styles.active : '')}
                         d-flex align-items-center justify-content-center text-decoration-none`}
                     >
