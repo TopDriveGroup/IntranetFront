@@ -18,7 +18,18 @@ import RegistersPage from './pages/Landing/01NavBar/01SIG/01Operations/04Operati
 import IndicatorsPage from './pages/Landing/01NavBar/01SIG/01Operations/05OperationIndicators/OperationIndicatorsPage';
 // TECNOLOGIA
 import TecnologyPage from './pages/Landing/01NavBar/01SIG/02Tecnology/TecnologyPage';
+import TecnologyPoliciesPage from './pages/Landing/01NavBar/01SIG/02Tecnology/01TecnologyPolicies/TecnologyPoliciesPage';
+import TecnologyFormsPage from './pages/Landing/01NavBar/01SIG/02Tecnology/02TecnologyForms/TecnologyFormsPage';
+import TecnologyProceduresPage from './pages/Landing/01NavBar/01SIG/02Tecnology/03TecnologyProcedures/TecnologyProceduresPage';
+import TecnologyRegistersPage from './pages/Landing/01NavBar/01SIG/02Tecnology/04TecnologyRegisters/TecnologyRegistersPage';
+import TecnologyIndicatorsPage from './pages/Landing/01NavBar/01SIG/02Tecnology/05TecnologyIndicators/TecnologyIndicatorsPage';
 // CALIDAD Y ADMIN
+import QualityAdministrativePage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/QualityAdministrativePage';
+import QualityAdministrativePoliciesPage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/01QualityAdministrativePolicies/QualityAdministrativePoliciesPage';
+import QualityAdministrativeFormsPage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/02QualityAdministrativeForms/QualityAdministrativeFormsPage';
+import QualityAdministrativeProceduresPage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/03QualityAdministrativeProcedures/QualityAdministrativeProceduresPage';
+import QualityAdministrativeRegistersPage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/04QualityAdministrativeRegisters/QualityAdministrativeRegistersPage';
+import QualityAdministrativeIndicatorsPage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/05QualityAdministrativeIndicators/QualityAdministrativeIndicatorsPage';
 // FINANCIERO
 // MARKETING
 // PROYECTOS Y SERVICIOS
@@ -52,12 +63,30 @@ function App() {
                     <Route path='/sig/operations/indicators' element={<IndicatorsPage />} />
                     {/* ----------SIG TECNOLOGIA---------- */}
                     <Route path='/sig/tecnology' element={<TecnologyPage />} />
+                    <Route path='/sig/tecnology/policies' element={<TecnologyPoliciesPage />} />
+                    <Route path='/sig/tecnology/forms' element={<TecnologyFormsPage />} />
+                    <Route path='/sig/tecnology/procedures' element={<TecnologyProceduresPage />} />
+                    <Route path='/sig/tecnology/registers' element={<TecnologyRegistersPage />} />
+                    <Route path='/sig/tecnology/indicators' element={<TecnologyIndicatorsPage />} />
+                    {/* ----------SIG CALIDAD Y ADMINISTRACION---------- */}
+                    <Route path='/sig/quality-and-administrative' element={<QualityAdministrativePage />} />
+                    <Route path='/sig/quality-and-administrative/policies' element={<QualityAdministrativePoliciesPage />} />
+                    <Route path='/sig/quality-and-administrative/forms' element={<QualityAdministrativeFormsPage />} />
+                    <Route path='/sig/quality-and-administrative/procedures' element={<QualityAdministrativeProceduresPage />} />
+                    <Route path='/sig/quality-and-administrative/registers' element={<QualityAdministrativeRegistersPage />} />
+                    <Route path='/sig/quality-and-administrative/indicators' element={<QualityAdministrativeIndicatorsPage />} />
 
+                    {/* ----------NOSOTROS---------- */}
                     <Route path='/about-us' element={<AboutUsPage />} />
+                    {/* ----------DOCUMENTOS---------- */}
                     <Route path='/documents' element={<DocumentsPage />} />
+                    {/* ----------TD UNIVERSITY---------- */}
                     <Route path='/top-drive-univertity' element={<TDUnivertityPage />} />
+                    {/* ----------REPORTE TECNICO---------- */}
                     <Route path='/technical-report' element={<TechnicalReportPage />} />
+                    {/* ----------gESTION DE ACTIVOS---------- */}
                     <Route path='/asset-management' element={<AssetManagementPage />} />
+                    {/* ----------SOLICITUDES---------- */}
                     <Route path='/requests' element={<RequestsPage />} />
                     
                     {/* ERROR 404 */}

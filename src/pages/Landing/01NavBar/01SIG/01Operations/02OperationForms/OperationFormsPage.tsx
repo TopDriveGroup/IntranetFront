@@ -10,7 +10,7 @@ function OperationFormsPage() {
             <div className={`${styles.container__Component} d-flex`}>
                 <SideBarOperations />
                 <div className={`${styles.component} p-3`}>
-                    <h2 className={`${styles.title} `}>Formularios de operaciones</h2>
+                    <h2 className={`${styles.title} `}>Formularios de Operaciones</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ad voluptates culpa cupiditate placeat eos possimus nostrum excepturi, dolore inventore fugiat, asperiores corporis at perferendis sequi eius aliquam ratione facilis?</p>
                 </div>
             </div>
