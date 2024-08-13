@@ -11,7 +11,7 @@ function TechnicalReportPage() {
             <div className={`${styles.container__Component} d-flex`}>
                 <SideBarTechnicalReport />
                 <div className={`${styles.component} p-3`}>
-                    <h2 className={`${styles.title} `}>Reporte Técnico</h2>
+                    <h2 className={`${styles.title} `}>Repositorio Técnico</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ad voluptates culpa cupiditate placeat eos possimus nostrum excepturi, dolore inventore fugiat, asperiores corporis at perferendis sequi eius aliquam ratione facilis?</p>
                 </div>
             </div>
