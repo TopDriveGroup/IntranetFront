@@ -1,7 +1,10 @@
 .container {
     margin: 110px 0 0 0;
-    height: calc(100vh - 110px);
     width: 100%;
+}
+.container__Component {
+    width: 100%;
+    border: 1px solid red;
 }
 .title {
     color: #e4002b;

@@ -51,7 +51,7 @@ import ProjectsSolutionsFormsPage from './pages/Landing/01NavBar/01SIG/06Project
 import ProjectsSolutionsProceduresPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/03ProjectsSolutionsProcedures/ProjectsSolutionsProceduresPage';
 import ProjectsSolutionsRegistersPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/04ProjectsSolutionsRegisters/ProjectsSolutionsRegistersPage';
 import ProjectsSolutionsIndicatorsPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/05ProjectsSolutionsIndicators/ProjectsSolutionsIndicatorsPage';
-import AboutUsPage from './pages/Landing/01NavBar/02Nosotros/AboutUsPage';
+import AboutUsPage from './pages/Landing/01NavBar/02AboutUs/AboutUsPage';
 import DocumentsPage from './pages/Landing/01NavBar/03Documents/DocumentsPage';
 import TDUnivertityPage from './pages/Landing/01NavBar/04TDUnivertity/TDUnivertityPage';
 import TechnicalReportPage from './pages/Landing/01NavBar/05TechnicalReport/TechnicalReportPage';
