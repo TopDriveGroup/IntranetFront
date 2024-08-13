@@ -70,6 +70,8 @@ import AssetRequestPage from './pages/Landing/01NavBar/06AssetManagement/02Asset
 import AssetSummaryPage from './pages/Landing/01NavBar/06AssetManagement/03AssetSummary/AssetSummaryPage';
 // SOLICITUDES
 import RequestsPage from './pages/Landing/01NavBar/07Requests/RequestsPage';
+import TechPage from './pages/Landing/01NavBar/07Requests/01Tech/TechPage';
+import QualityPage from './pages/Landing/01NavBar/07Requests/02Quality/QualityPage';
 // ERROR404
 import Error404 from './pages/Error404/Error404';
 
@@ -154,6 +156,8 @@ function App() {
 
                     {/* ----------SOLICITUDES---------- */}
                     <Route path='/requests' element={<RequestsPage />} />
+                    <Route path='/requests/tech' element={<TechPage />} />
+                    <Route path='/requests/quality' element={<QualityPage />} />
                     
                     {/* ERROR 404 */}
                     <Route path="*" element={<Error404 />} />
