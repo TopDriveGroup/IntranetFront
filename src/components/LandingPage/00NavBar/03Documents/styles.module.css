@@ -42,3 +42,10 @@
     border-left: 5px solid red;
     background: #e9ecef;
 }
+.menu {
+    background: #f8f9fa;
+    margin: 0 0 5px 5px;
+    min-width: 300px;
+    border-radius: 10px;
+    padding: 5px 5px 5px 35px;
+}

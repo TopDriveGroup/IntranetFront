@@ -52,8 +52,11 @@ function NavBar() {
                     </div>
 
                     <div className={`${styles.ecommerce} d-flex align-items-center justify-content-center`}>
-                        <Link to="/register" className={`${styles.register} px-2 d-flex align-items-center justify-content-center text-center text-decoration-none`} >
-                            Registro
+                        <Link to="/tecnology" className={`${styles.register} px-2 d-flex align-items-center justify-content-center text-center text-decoration-none`} >
+                            Tecnología
+                        </Link>
+                        <Link to="/admin" className={`${styles.register} px-2 d-flex align-items-center justify-content-center text-center text-decoration-none`} >
+                            Administración
                         </Link>
                         <Link to="/login" className={`${styles.login} px-2 d-flex align-items-center justify-content-end text-center text-decoration-none gap-1`} >
                             <AiOutlineUser className={styles.icon__User} />
@@ -92,7 +95,7 @@ function NavBar() {
                         TD Univertity
                     </Link>
                     <Link to="/technical-report" className={`${styles.quotation} ${location.pathname === '/technical-report' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
-                        Reporte Técnico
+                        Repositorio Técnico
                     </Link>
                     <Link to="/asset-management" className={`${styles.quotation} ${location.pathname === '/asset-management' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Gestión de activos
