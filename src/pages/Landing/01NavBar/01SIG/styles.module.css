@@ -12,3 +12,7 @@
     font-weight: 600;
     letter-spacing: 1px;
 }
+.section {
+    border: 1px solid red;
+    width: 400px;
+}
