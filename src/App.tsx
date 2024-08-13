@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles.css';
-
 // GENERALES
 import WhatsApp from './components/WhatsApp/WhatsApp';
 import Scroll from './components/Scroll/Scroll';
-
 // LANDINGPAGE
 import LandingPage from './pages/Landing/LandingPage';
 // NAVBAR
@@ -61,12 +59,15 @@ import AdministrativeDocumentsPage from './pages/Landing/01NavBar/03Documents/03
 import TDUnivertityPage from './pages/Landing/01NavBar/04TDUnivertity/TDUnivertityPage';
 // REPORTES TECNICOS
 import TechnicalReportPage from './pages/Landing/01NavBar/05TechnicalReport/TechnicalReportPage';
-import TechnicalDataSheets from './pages/Landing/01NavBar/05TechnicalReport/01TechnicalDataSheets/TechnicalDataSheets';
+import TechnicalDataSheets from './pages/Landing/01NavBar/05TechnicalReport/01TechnicalDataSheets/TechnicalDataSheetsPage';
 import ConformityCertificatesPage from './pages/Landing/01NavBar/05TechnicalReport/02ConformityCertificates/ConformityCertificatesPage';
 import KitsPackagesPage from './pages/Landing/01NavBar/05TechnicalReport/03Kits&Packages/KitsPackagesPage';
 import SupportDocumentsPage from './pages/Landing/01NavBar/05TechnicalReport/04SupportDocuments/SupportDocumentsPage';
 // GESTION DE ACTIVOS
 import AssetManagementPage from './pages/Landing/01NavBar/06AssetManagement/AssetManagementPage';
+import MyAssetsPage from './pages/Landing/01NavBar/06AssetManagement/01MyAssets/MyAssetsPage';
+import AssetRequestPage from './pages/Landing/01NavBar/06AssetManagement/02AssetRequest/AssetRequestPage';
+import AssetSummaryPage from './pages/Landing/01NavBar/06AssetManagement/03AssetSummary/AssetSummaryPage';
 // SOLICITUDES
 import RequestsPage from './pages/Landing/01NavBar/07Requests/RequestsPage';
 // ERROR404
@@ -147,6 +148,9 @@ function App() {
 
                     {/* ----------GESTION DE ACTIVOS---------- */}
                     <Route path='/asset-management' element={<AssetManagementPage />} />
+                    <Route path='/asset-management/my-assets' element={<MyAssetsPage />} />
+                    <Route path='/asset-management/asset-request' element={<AssetRequestPage />} />
+                    <Route path='/asset-management/asset-summary' element={<AssetSummaryPage />} />
 
                     {/* ----------SOLICITUDES---------- */}
                     <Route path='/requests' element={<RequestsPage />} />
