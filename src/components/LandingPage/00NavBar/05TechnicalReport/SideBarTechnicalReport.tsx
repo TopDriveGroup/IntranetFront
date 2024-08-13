@@ -15,7 +15,7 @@ function SideBarTechnicalReport() {
                     {location.pathname !== "/technical-report" && (
                         <div>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
-                            <Link to="/technical-report" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Reporte Técnico</Link>
+                            <Link to="/technical-report" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Repositorio Técnico</Link>
                         </div>
                     )}
                 </div>
