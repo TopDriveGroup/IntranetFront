@@ -38,6 +38,12 @@ import FinantialProceduresPage from './pages/Landing/01NavBar/01SIG/04Finantial/
 import FinantialRegistersPage from './pages/Landing/01NavBar/01SIG/04Finantial/04FinantialRegisters/FinantialRegistersPage';
 import FinantialIndicatorsPage from './pages/Landing/01NavBar/01SIG/04Finantial/05FinantialIndicators/FinantialIndicatorsPage';
 // MARKETING
+import MarketingPage from './pages/Landing/01NavBar/01SIG/05Marketing/MarketingPage';
+import MarketingPoliciesPage from './pages/Landing/01NavBar/01SIG/05Marketing/01MarketingPolicies/MarketingPoliciesPage';
+import MarketingFormsPage from './pages/Landing/01NavBar/01SIG/05Marketing/02MarketingForms/MarketingFormsPage';
+import MarketingProceduresPage from './pages/Landing/01NavBar/01SIG/05Marketing/03MarketingProcedures/MarketingProceduresPage';
+import MarketingRegistersPage from './pages/Landing/01NavBar/01SIG/05Marketing/04MarketingRegisters/MarketingRegistersPage';
+import MarketingIndicatorsPage from './pages/Landing/01NavBar/01SIG/05Marketing/05MarketingIndicators/MarketingIndicatorsPage';
 // PROYECTOS Y SERVICIOS
 import AboutUsPage from './pages/Landing/01NavBar/02Nosotros/AboutUsPage';
 import DocumentsPage from './pages/Landing/01NavBar/03Documents/DocumentsPage';
@@ -89,6 +95,12 @@ function App() {
                     <Route path='/sig/finantial/registers' element={<FinantialRegistersPage />} />
                     <Route path='/sig/finantial/indicators' element={<FinantialIndicatorsPage />} />
                     {/* ----------SIG MARKETING---------- */}
+                    <Route path='/sig/marketing' element={<MarketingPage />} />
+                    <Route path='/sig/marketing/policies' element={<MarketingPoliciesPage />} />
+                    <Route path='/sig/marketing/forms' element={<MarketingFormsPage />} />
+                    <Route path='/sig/marketing/procedures' element={<MarketingProceduresPage />} />
+                    <Route path='/sig/marketing/registers' element={<MarketingRegistersPage />} />
+                    <Route path='/sig/marketing/indicators' element={<MarketingIndicatorsPage />} />
                     {/* ----------SIG PROYECTOS Y SERVICIOS---------- */}
 
                     {/* ----------NOSOTROS---------- */}
