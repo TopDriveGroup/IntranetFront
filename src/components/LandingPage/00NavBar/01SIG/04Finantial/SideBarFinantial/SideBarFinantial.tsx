@@ -5,20 +5,20 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoHome } from "react-icons/io5";
 import styles from './styles.module.css';
 
-function SideBarQualityAdministrative() {
+function SideBarFinantial() {
     const location = useLocation();
 
     return (
         <div className={`${styles.container} overflow-y-auto position-sticky border-top-0`}>
             <div className={`${styles.container__Component} p-1`}>
                 <div className={`${styles.container__Section} mb-2 d-flex align-items-center justify-content-end`}>
-                    {location.pathname !== "/sig/quality-and-administrative" && (
+                    {location.pathname !== "/sig/finantial" && (
                         <div>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
-                            <Link to="/sig/quality-and-administrative" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Calidad y Admin</Link>
+                            <Link to="/sig/finantial" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Financiero</Link>
                         </div>
                     )}
-                    {location.pathname === "/sig/quality-and-administrative" && (
+                    {location.pathname === "/sig/finantial" && (
                         <div>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
                             <Link to="/sig" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de SIG</Link>
@@ -26,11 +26,11 @@ function SideBarQualityAdministrative() {
                     )}
                 </div>
 
-                <div className={`${styles.container__Section} ${location.pathname === '/sig/quality-and-administrative/policies' ? styles.active : ''} mb-2 d-flex align-items-center`}>
+                <div className={`${styles.container__Section} ${location.pathname === '/sig/finantial/policies' ? styles.active : ''} mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
-                    <Link to="/sig/quality-and-administrative/policies" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                    <Link to="/sig/finantial/policies" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
@@ -38,11 +38,11 @@ function SideBarQualityAdministrative() {
                     </Link>
                 </div>
 
-                <div className={`${styles.container__Section} ${location.pathname === '/sig/quality-and-administrative/forms' ? styles.active : ''} mb-2 d-flex align-items-center`}>
+                <div className={`${styles.container__Section} ${location.pathname === '/sig/finantial/forms' ? styles.active : ''} mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
-                    <Link to="/sig/quality-and-administrative/forms" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                    <Link to="/sig/finantial/forms" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
@@ -50,11 +50,11 @@ function SideBarQualityAdministrative() {
                     </Link>
                 </div>
 
-                <div className={`${styles.container__Section} ${location.pathname === '/sig/quality-and-administrative/procedures' ? styles.active : ''} mb-2 d-flex align-items-center`}>
+                <div className={`${styles.container__Section} ${location.pathname === '/sig/finantial/procedures' ? styles.active : ''} mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
-                    <Link to="/sig/quality-and-administrative/procedures" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                    <Link to="/sig/finantial/procedures" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
@@ -62,11 +62,11 @@ function SideBarQualityAdministrative() {
                     </Link>
                 </div>
 
-                <div className={`${styles.container__Section} ${location.pathname === '/sig/quality-and-administrative/registers' ? styles.active : ''} mb-2 d-flex align-items-center`}>
+                <div className={`${styles.container__Section} ${location.pathname === '/sig/finantial/registers' ? styles.active : ''} mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
-                    <Link to="/sig/quality-and-administrative/registers" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                    <Link to="/sig/finantial/registers" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
@@ -74,11 +74,11 @@ function SideBarQualityAdministrative() {
                     </Link>
                 </div>
 
-                <div className={`${styles.container__Section} ${location.pathname === '/sig/quality-and-administrative/indicators' ? styles.active : ''} mb-2 d-flex align-items-center`}>
+                <div className={`${styles.container__Section} ${location.pathname === '/sig/finantial/indicators' ? styles.active : ''} mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
-                    <Link to="/sig/quality-and-administrative/indicators" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                    <Link to="/sig/finantial/indicators" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
@@ -90,4 +90,4 @@ function SideBarQualityAdministrative() {
     );
 }
 
-export default SideBarQualityAdministrative;
+export default SideBarFinantial;

@@ -31,6 +31,12 @@ import QualityAdministrativeProceduresPage from './pages/Landing/01NavBar/01SIG/
 import QualityAdministrativeRegistersPage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/04QualityAdministrativeRegisters/QualityAdministrativeRegistersPage';
 import QualityAdministrativeIndicatorsPage from './pages/Landing/01NavBar/01SIG/03QualityAdministrative/05QualityAdministrativeIndicators/QualityAdministrativeIndicatorsPage';
 // FINANCIERO
+import FinantialPage from './pages/Landing/01NavBar/01SIG/04Finantial/FinantialPage';
+import FinantialPoliciesPage from './pages/Landing/01NavBar/01SIG/04Finantial/01FinantialPolicies/FinantialPoliciesPage';
+import FinantialFormsPage from './pages/Landing/01NavBar/01SIG/04Finantial/02FinantialForms/FinantialFormsPage';
+import FinantialProceduresPage from './pages/Landing/01NavBar/01SIG/04Finantial/03FinantialProcedures/FinantialProceduresPage';
+import FinantialRegistersPage from './pages/Landing/01NavBar/01SIG/04Finantial/04FinantialRegisters/FinantialRegistersPage';
+import FinantialIndicatorsPage from './pages/Landing/01NavBar/01SIG/04Finantial/05FinantialIndicators/FinantialIndicatorsPage';
 // MARKETING
 // PROYECTOS Y SERVICIOS
 import AboutUsPage from './pages/Landing/01NavBar/02Nosotros/AboutUsPage';
@@ -75,6 +81,15 @@ function App() {
                     <Route path='/sig/quality-and-administrative/procedures' element={<QualityAdministrativeProceduresPage />} />
                     <Route path='/sig/quality-and-administrative/registers' element={<QualityAdministrativeRegistersPage />} />
                     <Route path='/sig/quality-and-administrative/indicators' element={<QualityAdministrativeIndicatorsPage />} />
+                    {/* ----------SIG FINANCIERO---------- */}
+                    <Route path='/sig/finantial' element={<FinantialPage />} />
+                    <Route path='/sig/finantial/policies' element={<FinantialPoliciesPage />} />
+                    <Route path='/sig/finantial/forms' element={<FinantialFormsPage />} />
+                    <Route path='/sig/finantial/procedures' element={<FinantialProceduresPage />} />
+                    <Route path='/sig/finantial/registers' element={<FinantialRegistersPage />} />
+                    <Route path='/sig/finantial/indicators' element={<FinantialIndicatorsPage />} />
+                    {/* ----------SIG MARKETING---------- */}
+                    {/* ----------SIG PROYECTOS Y SERVICIOS---------- */}
 
                     {/* ----------NOSOTROS---------- */}
                     <Route path='/about-us' element={<AboutUsPage />} />
