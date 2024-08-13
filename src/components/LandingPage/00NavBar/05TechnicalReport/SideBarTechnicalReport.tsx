@@ -52,7 +52,7 @@ function SideBarTechnicalReport() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__SideBar} p-1 text-decoration-none`}>Kits y Paquetes</div>
+                        <div className={`${styles.link__SideBar} p-1 text-decoration-none`}>Kits & Paquetes</div>
                     </Link>
                 </div>
 
