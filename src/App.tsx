@@ -45,6 +45,12 @@ import MarketingProceduresPage from './pages/Landing/01NavBar/01SIG/05Marketing/
 import MarketingRegistersPage from './pages/Landing/01NavBar/01SIG/05Marketing/04MarketingRegisters/MarketingRegistersPage';
 import MarketingIndicatorsPage from './pages/Landing/01NavBar/01SIG/05Marketing/05MarketingIndicators/MarketingIndicatorsPage';
 // PROYECTOS Y SERVICIOS
+import ProjectsSolutionsPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/ProjectsSolutionsPage';
+import ProjectsSolutionsPoliciesPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/01ProjectsSolutionsPolicies/ProjectsSolutionsPoliciesPage';
+import ProjectsSolutionsFormsPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/02ProjectsSolutionsForms/ProjectsSolutionsFormsPage';
+import ProjectsSolutionsProceduresPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/03ProjectsSolutionsProcedures/ProjectsSolutionsProceduresPage';
+import ProjectsSolutionsRegistersPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/04ProjectsSolutionsRegisters/ProjectsSolutionsRegistersPage';
+import ProjectsSolutionsIndicatorsPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/05ProjectsSolutionsIndicators/ProjectsSolutionsIndicatorsPage';
 import AboutUsPage from './pages/Landing/01NavBar/02Nosotros/AboutUsPage';
 import DocumentsPage from './pages/Landing/01NavBar/03Documents/DocumentsPage';
 import TDUnivertityPage from './pages/Landing/01NavBar/04TDUnivertity/TDUnivertityPage';
@@ -102,6 +108,13 @@ function App() {
                     <Route path='/sig/marketing/registers' element={<MarketingRegistersPage />} />
                     <Route path='/sig/marketing/indicators' element={<MarketingIndicatorsPage />} />
                     {/* ----------SIG PROYECTOS Y SERVICIOS---------- */}
+                    <Route path='/sig/projects-and-solutions' element={<ProjectsSolutionsPage />} />
+
+                    <Route path='/sig/projects-and-solutions/policies' element={<ProjectsSolutionsPoliciesPage />} />
+                    <Route path='/sig/projects-and-solutions/forms' element={<ProjectsSolutionsFormsPage />} />
+                    <Route path='/sig/projects-and-solutions/procedures' element={<ProjectsSolutionsProceduresPage />} />
+                    <Route path='/sig/projects-and-solutions/registers' element={<ProjectsSolutionsRegistersPage />} />
+                    <Route path='/sig/projects-and-solutions/indicators' element={<ProjectsSolutionsIndicatorsPage />} />
 
                     {/* ----------NOSOTROS---------- */}
                     <Route path='/about-us' element={<AboutUsPage />} />
