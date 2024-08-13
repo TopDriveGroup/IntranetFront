@@ -52,12 +52,23 @@ import ProjectsSolutionsProceduresPage from './pages/Landing/01NavBar/01SIG/06Pr
 import ProjectsSolutionsRegistersPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/04ProjectsSolutionsRegisters/ProjectsSolutionsRegistersPage';
 import ProjectsSolutionsIndicatorsPage from './pages/Landing/01NavBar/01SIG/06ProjectsSolutions/05ProjectsSolutionsIndicators/ProjectsSolutionsIndicatorsPage';
 import AboutUsPage from './pages/Landing/01NavBar/02AboutUs/AboutUsPage';
+// DOCUMENTOS
 import DocumentsPage from './pages/Landing/01NavBar/03Documents/DocumentsPage';
+import FinantialDocumentsPage from './pages/Landing/01NavBar/03Documents/01FinantialDocumentsPage/FinantialDocumentsPage';
+import MarketingDocumentsPage from './pages/Landing/01NavBar/03Documents/02MarketingDocuments/MarketingDocumentsPage';
+import AdministrativeDocumentsPage from './pages/Landing/01NavBar/03Documents/03AdministrativeDocuments/AdministrativeDocumentsPage';
+// UNIVERSITY
 import TDUnivertityPage from './pages/Landing/01NavBar/04TDUnivertity/TDUnivertityPage';
+// REPORTES TECNICOS
 import TechnicalReportPage from './pages/Landing/01NavBar/05TechnicalReport/TechnicalReportPage';
+import TechnicalDataSheets from './pages/Landing/01NavBar/05TechnicalReport/01TechnicalDataSheets/TechnicalDataSheets';
+import ConformityCertificatesPage from './pages/Landing/01NavBar/05TechnicalReport/02ConformityCertificates/ConformityCertificatesPage';
+import KitsPackagesPage from './pages/Landing/01NavBar/05TechnicalReport/03Kits&Packages/KitsPackagesPage';
+import SupportDocumentsPage from './pages/Landing/01NavBar/05TechnicalReport/04SupportDocuments/SupportDocumentsPage';
+// GESTION DE ACTIVOS
 import AssetManagementPage from './pages/Landing/01NavBar/06AssetManagement/AssetManagementPage';
+// SOLICITUDES
 import RequestsPage from './pages/Landing/01NavBar/07Requests/RequestsPage';
-
 // ERROR404
 import Error404 from './pages/Error404/Error404';
 
@@ -109,7 +120,6 @@ function App() {
                     <Route path='/sig/marketing/indicators' element={<MarketingIndicatorsPage />} />
                     {/* ----------SIG PROYECTOS Y SERVICIOS---------- */}
                     <Route path='/sig/projects-and-solutions' element={<ProjectsSolutionsPage />} />
-
                     <Route path='/sig/projects-and-solutions/policies' element={<ProjectsSolutionsPoliciesPage />} />
                     <Route path='/sig/projects-and-solutions/forms' element={<ProjectsSolutionsFormsPage />} />
                     <Route path='/sig/projects-and-solutions/procedures' element={<ProjectsSolutionsProceduresPage />} />
@@ -118,14 +128,26 @@ function App() {
 
                     {/* ----------NOSOTROS---------- */}
                     <Route path='/about-us' element={<AboutUsPage />} />
+
                     {/* ----------DOCUMENTOS---------- */}
                     <Route path='/documents' element={<DocumentsPage />} />
+                    <Route path='/documents/finantial' element={<FinantialDocumentsPage />} />
+                    <Route path='/documents/marketing' element={<MarketingDocumentsPage />} />
+                    <Route path='/documents/administrative' element={<AdministrativeDocumentsPage />} />
+
                     {/* ----------TD UNIVERSITY---------- */}
                     <Route path='/top-drive-univertity' element={<TDUnivertityPage />} />
+
                     {/* ----------REPORTE TECNICO---------- */}
                     <Route path='/technical-report' element={<TechnicalReportPage />} />
-                    {/* ----------gESTION DE ACTIVOS---------- */}
+                    <Route path='/technical-report/technical-data-sheets' element={<TechnicalDataSheets />} />
+                    <Route path='/technical-report/conformity-certificates' element={<ConformityCertificatesPage />} />
+                    <Route path='/technical-report/kits&-packages' element={<KitsPackagesPage />} />
+                    <Route path='/technical-report/support-documents' element={<SupportDocumentsPage />} />
+
+                    {/* ----------GESTION DE ACTIVOS---------- */}
                     <Route path='/asset-management' element={<AssetManagementPage />} />
+
                     {/* ----------SOLICITUDES---------- */}
                     <Route path='/requests' element={<RequestsPage />} />
                     
