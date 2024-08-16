@@ -1,4 +1,4 @@
-export interface IColaborator {
+export interface ICollaborator {
     id?: string;
     name: string;
     lastName: string;
