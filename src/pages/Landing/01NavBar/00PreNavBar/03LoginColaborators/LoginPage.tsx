@@ -7,9 +7,9 @@ import { jwtDecode } from 'jwt-decode';
 //REDUX
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from '../../../../../redux/store';
-import { loginColaborator } from '../../../../../redux/ColaboratorSlice/actions';
+import { postCollaboratorLogin } from '../../../../../redux/CollaboratorSlice/actions';
 //ELEMENTOS DEL COMPONENTE
-import { IUserLogin } from '../../../../../types/userLogin.types';
+import { ILogin } from '../../../../../types/login.types';
 import LogoTopDriveGroup from '../../../../../assets/TopDriveGroup/LogoTopDrive.svg';
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 import { PiWarningCircle } from 'react-icons/pi';
@@ -25,19 +25,19 @@ function LoginPage() {
     const dispatch: AppDispatch = useDispatch();
 
     // Utiliza useSelector para obtener la información del usuario del estado de Redux
-    const colaboratorErrors = useSelector((state: RootState) => state.colaborator.colaboratorErrors);
-    const isAuthenticated = useSelector((state: RootState) => state.colaborator.isAuthenticated);
+    const colaboratorErrors = useSelector((state: RootState) => state.collaborator.colaboratorErrors);
+    const isAuthenticated = useSelector((state: RootState) => state.collaborator.isAuthenticated);
 
-    const { register, formState: { errors }, handleSubmit } = useForm<IUserLogin>();
+    const { register, formState: { errors }, handleSubmit } = useForm<ILogin>();
 
     const [showPassword, setShowPassword] = useState(false);
     const toggleShowPassword = () => {
         setShowPassword((prevState) => !prevState);
     };
 
-    const onSubmit = async (loginData: IUserLogin) => {
+    const onSubmit = async (loginData: ILogin) => {
         try {
-            dispatch(loginColaborator(loginData));
+            dispatch(postCollaboratorLogin(loginData));
         } catch {
             throw new Error('Error al iniciar sesión');
         }
@@ -50,7 +50,7 @@ function LoginPage() {
                 // Se decodifica el token para redirigir al usuario a su panel respectivo
                 decodedToken = jwtDecode<DecodedToken>(token);
                 if(decodedToken.typeRole === 'Superadmin') {
-                    navigate("/panel-colaborator/profile");
+                    navigate("/panel-collaborator/profile");
                 } else {
                     navigate("/panel-top-drive-group/configuration");
                 }
