@@ -60,6 +60,9 @@ import MarketingDocumentsPage from './pages/Landing/01NavBar/03Documents/02Marke
 import AdministrativeDocumentsPage from './pages/Landing/01NavBar/03Documents/03AdministrativeDocuments/AdministrativeDocumentsPage';
 // UNIVERSITY
 import TDUnivertityPage from './pages/Landing/01NavBar/04TDUnivertity/TDUnivertityPage';
+import CorporateInductionNewPersonnelPage from './pages/Landing/01NavBar/04TDUnivertity/01CorporateInductionNewPersonnel/CorporateInductionNewPersonnelPage';
+import InductionVisitPlantPage from './pages/Landing/01NavBar/04TDUnivertity/02InductionVisitPlant/InductionVisitPlantPage';
+import TrainingPage from './pages/Landing/01NavBar/04TDUnivertity/03Training/TrainingPage';
 // REPORTES TECNICOS
 import TechnicalReportPage from './pages/Landing/01NavBar/05TechnicalReport/TechnicalReportPage';
 import TechnicalDataSheets from './pages/Landing/01NavBar/05TechnicalReport/01TechnicalDataSheets/TechnicalDataSheetsPage';
@@ -147,6 +150,9 @@ function App() {
 
                     {/* ----------TD UNIVERSITY---------- */}
                     <Route path='/top-drive-univertity' element={<TDUnivertityPage />} />
+                    <Route path='/top-drive-univertity/corporate-induction-for-new-personnel' element={<CorporateInductionNewPersonnelPage />} />
+                    <Route path='/top-drive-univertity/induction-visit-plant' element={<InductionVisitPlantPage />} />
+                    <Route path='/top-drive-univertity/training' element={<TrainingPage />} />
 
                     {/* ----------REPORTE TECNICO---------- */}
                     <Route path='/technical-report' element={<TechnicalReportPage />} />
