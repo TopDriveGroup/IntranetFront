@@ -7,9 +7,9 @@ function SIGPage() {
     const location = useLocation();
 
     return (
-        <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between`}>
+        <div>
             <NavBar />
-            <div className={`${styles.container__Component} p-4 d-flex flex-column`}>
+            <div className={`${styles.container} p-2`}>
                 <h2 className={`${styles.title} `}>Sistema Integrado de Gestión</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ad voluptates culpa cupiditate placeat eos possimus nostrum excepturi, dolore inventore fugiat, asperiores corporis at perferendis sequi eius aliquam ratione facilis?</p>
                 <Link to="/sig/operations" className={`${styles.section} ${location.pathname === '/sig/operations' ? styles.active : ''} d-flex align-items-center justify-content-start text-decoration-none`}>Operations</Link>

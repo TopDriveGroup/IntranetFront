@@ -3,7 +3,7 @@ import jsCookie from 'js-cookie';
 import { AppDispatch } from '../store';
 import axiosInstance from '../../api/axios';
 import { ICollaborator } from '../../types/collaborator.types';
-import { setCollaboratorData, setCollaboratorErrors, postCollaboratorRegisterStart, isAuthenticatedStatus, postCollaboratorLoginStart, getCollaboratorProfileStart } from './colaboratorSlice';
+import { setCollaboratorData, setCollaboratorErrors, postCollaboratorRegisterStart, isAuthenticatedStatus, postCollaboratorLoginStart, getCollaboratorProfileStart, sendDocumentToSharePointStart } from './colaboratorSlice';
 
 //REGISTRO DE COLABORADORES
 export const postCollaboratorRegister = (formData: ICollaborator) => async (dispatch: AppDispatch) => {
@@ -60,6 +60,24 @@ export const getCollaboratorProfile = (token: string) => async (dispatch: AppDis
         }
     }
 };
+
+
+
+//ENVIA CORREO ELECTRONICO A UN CLIENTE REGISTRADO EN EL crM
+export const sendEmailCRMClient = (sendEmailData: any) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(sendDocumentToSharePointStart());
+        return await axiosInstance.post(`/user/send-email`, sendEmailData);
+    } catch (error: any) {
+        if (error.response && error.response.status === 500) {
+            dispatch(setCollaboratorErrors(error.response?.data));
+        } else {
+            dispatch(setCollaboratorErrors(error));
+        }
+    }
+};
+
+
 
 //LOGOUT DE COLABORADORES                        
 export const collaboratorLogout = () => (dispatch: AppDispatch) => {

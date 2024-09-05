@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 //ELEMENTOS DEL COMPONENTE
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -7,10 +8,11 @@ import { FaYoutube } from "react-icons/fa";
 import styles from './styles.module.css';
 
 function Footer() {
+    const { t } = useTranslation('footer');
 
     return (
         <div className={`${styles.container} d-flex align-items-center justify-content-between`}>
-            <div className={`${styles.container__Component} m-auto d-flex align-items-center justify-content-between`}>
+            <div className={`${styles.container__Component} m-auto d-flex justify-content-between`}>
                 <div className={`${styles.container__Data} `}>
                     <div className={`${styles.container__Social_Media} d-flex align-items-center justify-content-start`}>
                         <a href="https://www.facebook.com/topdrivegroup" target="blank" rel="noopener noreferrer" aria-label="Facebook" className={`${styles.link__Social_Network} d-flex align-items-center justify-content-center text-decoration-none`}>
@@ -30,17 +32,17 @@ function Footer() {
                         </a>
                     </div>
                     <div className={`${styles.container__Data_Company} `}>
-                        <p className="m-0">Autopista Medellín km 1.5 - Parque Empresarial San Bernardo, Bodega 1</p>
+                        <p className={`${styles.company__Address} m-0`}>{t('footer.company__Address')}</p>
                         <div className={`${styles.container__comunication} m-auto d-flex gap-2`}>
                             <span className={`${styles.means__Contact}`}>(+57) 311 271 2405</span><span> - <a href="mailto:info@topdrivegroup.com" className={`${styles.means__Contact} m-0 text-decoration-none`}>info@topdrivegroup.com</a></span>
                         </div>
                     </div>
                 </div>
-                <div className={`${styles.container__Polity} pt-3 d-flex flex-column align-items-end justify-content-start`}>
-                    <p className="m-0">Términos y condiciones</p>
-                    <p className="m-0">Política de privacidad</p>
+                <div className={`${styles.container__Polity} `}>
+                    <p className="m-0">{t('footer.terms__Conditions')}</p>
+                    <p className="m-0">{t('footer.privacy__Policy')}</p>
                     <p className="m-0">© Copyright 2024 Top Drive Group</p>
-                    <p className="m-0">Todos los derechos reservados</p>
+                    <p className="m-0">{t('footer.all__Rights_Reserved')}</p>
                 </div>
             </div>
         </div>
