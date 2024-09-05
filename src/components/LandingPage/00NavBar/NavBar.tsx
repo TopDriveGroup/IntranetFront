@@ -88,10 +88,16 @@ function NavBar() {
                     <Link to="/about-us" className={`${styles.home} ${location.pathname === '/about-us' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Nosotros
                     </Link>
-                    <Link to="/documents" className={`${styles.aboutUs} ${location.pathname === '/documents' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/documents"className={`${styles.aboutUs} ${location.pathname === '/documents' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Documentos
                     </Link>
-                    <Link to="/top-drive-univertity" className={`${styles.products} ${location.pathname === '/top-drive-univertity' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/top-drive-univertity"
+                        className={`${styles.products}
+                        ${(location.pathname === '/top-drive-univertity' ||
+                        location.pathname === '/top-drive-univertity/corporate-induction-for-new-personnel' ||
+                        location.pathname === '/top-drive-univertity/training'
+                        ? styles.active : '')}
+                        d-flex align-items-center justify-content-center text-decoration-none`} >
                         TD Univertity
                     </Link>
                     <Link to="/technical-report" className={`${styles.quotation} ${location.pathname === '/technical-report' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
