@@ -4,8 +4,33 @@
     min-height: calc(100vh - 100px);
     max-width: 100%;
 }
+.button__Back {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #495057;
+    padding: 10px 20px;
+}
+.button__Back:hover {
+    border: 1px solid #e4002b;
+    color: #e4002b;
+}
 .title {
     color: #e4002b;
     font-weight: 600;
     letter-spacing: 1px;
+}
+.container__Course {
+    width: 1000px;
+}
+.course {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #495057;
+    border-radius: 10px;
+    height: 280px;
+    width: 200px;
+}
+.course:hover {
+    border: 1px solid #e4002b;
+}
+.title__Course {
+    height: 60px;
 }

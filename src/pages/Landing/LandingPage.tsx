@@ -4,7 +4,7 @@ import BulletinBoard from '../../components/LandingPage/01BulletinBoard/Bulletin
 import Principles from '../../components/LandingPage/02/Principles';
 import OccupationalSafety from '../../components/LandingPage/03OccupationalSafety/OccupationalSafety';
 import EconomicIndicators from '../../components/LandingPage/04EconomicIndicators/EconomicIndicators';
-import CorporateVideo from '../../components/LandingPage/05CorporateVideo/CorporateVideo';
+import CompanyDescription from '../../components/LandingPage/05CompanyDescription/CompanyDescription';
 import styles from './styles.module.css';
 
 function LandingPage() {
@@ -17,7 +17,7 @@ function LandingPage() {
                 <Principles />
                 <OccupationalSafety />
                 <EconomicIndicators />
-                <CorporateVideo />
+                <CompanyDescription />
             </div>
             <Footer />
         </div>

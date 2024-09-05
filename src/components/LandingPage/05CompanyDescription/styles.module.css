@@ -1,0 +1,26 @@
+.container {
+    margin: 80px auto;
+    max-width: 90%;
+}
+
+
+/* ---------- RESPONSIVE (900 PX) ---------- */
+@media screen and (max-width: 900px) {
+    .container {
+        margin: auto;
+        flex-direction: column;
+        max-width: 90%;
+    }
+    .video {
+        max-width: 100%;
+    }
+}
+
+
+/* ---------- RESPONSIVE (550 PX) ---------- */
+@media screen and (max-width: 600px) {
+    .video {
+        max-width: 100%;
+        max-height: 200px;
+    }
+}
