@@ -1,10 +1,16 @@
 .container {
-    margin: 110px 0 0 0;
-    height: calc(100vh - 110px);
-    width: 100%;
+    color: #495057;
+    margin: 110px auto 0 auto;
+    min-height: calc(100vh - 100px);
+    max-width: 100%;
 }
-.title {
-    color: #e4002b;
+.link {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #495057;
+    font-size: 20px;
     font-weight: 600;
-    letter-spacing: 1px;
+}
+.link:hover {
+    border: 1px solid #e4002b;
+    color: #e4002b;
 }
