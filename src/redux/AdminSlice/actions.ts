@@ -3,7 +3,7 @@ import jsCookie from 'js-cookie';
 import { AppDispatch } from '../store';
 import axiosInstance from '../../api/axios';
 import { ICollaborator } from '../../types/collaborator.types';
-import { setAdminCollaboratorData, setAdminCollaboratorErrors, postAdminCollaboratorRegisterStart, postAdminCollaboratorLoginStart } from './adminSlice';
+import { setAdminCollaboratorData, setAdminCollaboratorErrors, isAdminCollaboratorAuthenticatedStatus, postAdminCollaboratorRegisterStart, postAdminCollaboratorLoginStart } from './adminSlice';
 
 //REGISTRO DE ADMINS
 export const postAdminCollaboratorRegister = (formData: ICollaborator) => async (dispatch: AppDispatch) => {
@@ -40,4 +40,12 @@ export const postAdminCollaboratorLogin = (loginData: { email: string; password:
             dispatch(setAdminCollaboratorErrors(error.response?.data.message));
         }
     }
+};
+
+//LOGOUT DE USUARIOS                        
+export const logoutAdminCollaborator = () => (dispatch: AppDispatch) => {
+    jsCookie.remove('token');
+    dispatch(isAdminCollaboratorAuthenticatedStatus(false));
+    dispatch(setAdminCollaboratorData(null));
+    window.location.href = "/login";
 };
