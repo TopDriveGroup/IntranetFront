@@ -1,5 +1,6 @@
 import NavBar from '../../components/LandingPage/00NavBar/NavBar';
 import Footer from '../../components/LandingPage/Footer/Footer';
+import UploadToSharePoint from '../../components/LandingPage/UploadToSharePoint/UploadToSharePoint';
 import styles from './styles.module.css';
 
 function LandingPage() {
@@ -7,7 +8,8 @@ function LandingPage() {
     return (
         <div>
             <NavBar />
-            <div className={styles.container}>
+            <div className={`${styles.container} p-2`}>
+                <UploadToSharePoint />
                 <div className='mb-5 d-flex flex-column'>
                     <h2>Cartelera</h2>
                     <p>- Fechas especiales</p>

@@ -46,8 +46,12 @@ const colaboratorSlice = createSlice({
             state.collaborator = action.payload;
             state.isAuthenticated = true;
         },
+        sendDocumentToSharePointStart: (state) => {
+            state.loading = false;
+            state.colaboratorErrors = null;
+        },
     },
 });
 
-export const { setCollaboratorData, setCollaboratorErrors, postCollaboratorRegisterStart, isAuthenticatedStatus, postCollaboratorLoginStart, getCollaboratorProfileStart } = colaboratorSlice.actions;
+export const { setCollaboratorData, setCollaboratorErrors, postCollaboratorRegisterStart, isAuthenticatedStatus, postCollaboratorLoginStart, getCollaboratorProfileStart, sendDocumentToSharePointStart } = colaboratorSlice.actions;
 export default colaboratorSlice.reducer;

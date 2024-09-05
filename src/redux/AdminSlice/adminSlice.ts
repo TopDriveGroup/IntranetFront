@@ -5,12 +5,14 @@ interface AdminCollaboratorState {
     adminCollaborator: ICollaborator | null;
     loading: boolean;
     adminCollaboratorErrors: string[] | null;
+    isAdminCollaboratorAuthenticated: boolean;
 }
 
 const initialState: AdminCollaboratorState = {
     adminCollaborator: null,
     loading: false,
     adminCollaboratorErrors: null,
+    isAdminCollaboratorAuthenticated: false,
 };
 
 const adminCollaboratorSlice = createSlice({
@@ -20,10 +22,14 @@ const adminCollaboratorSlice = createSlice({
         setAdminCollaboratorData: (state, action: PayloadAction<ICollaborator | null>) => {
             state.loading = false;
             state.adminCollaborator = action.payload;
+            state.isAdminCollaboratorAuthenticated = !!action.payload;
         },
         setAdminCollaboratorErrors: (state, action: PayloadAction<string[]>) => {
             state.loading = true;
             state.adminCollaboratorErrors = action.payload;
+        },
+        isAdminCollaboratorAuthenticatedStatus: (state, action: PayloadAction<boolean>) => {
+            state.isAdminCollaboratorAuthenticated = action.payload;
         },
         postAdminCollaboratorRegisterStart: (state, action: PayloadAction<ICollaborator | null>) => {
             state.loading = true;
@@ -37,5 +43,5 @@ const adminCollaboratorSlice = createSlice({
     },
 });
 
-export const { setAdminCollaboratorData, setAdminCollaboratorErrors, postAdminCollaboratorRegisterStart, postAdminCollaboratorLoginStart } = adminCollaboratorSlice.actions;
+export const { setAdminCollaboratorData, setAdminCollaboratorErrors, isAdminCollaboratorAuthenticatedStatus, postAdminCollaboratorRegisterStart, postAdminCollaboratorLoginStart } = adminCollaboratorSlice.actions;
 export default adminCollaboratorSlice.reducer;
