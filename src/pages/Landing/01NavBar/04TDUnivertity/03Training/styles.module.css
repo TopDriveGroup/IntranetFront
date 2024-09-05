@@ -1,0 +1,11 @@
+.container {
+    color: #495057;
+    margin: 110px auto 0 auto;
+    min-height: calc(100vh - 100px);
+    max-width: 100%;
+}
+.title {
+    color: #e4002b;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
