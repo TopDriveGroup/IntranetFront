@@ -5,6 +5,8 @@ import WhatsApp from './components/WhatsApp/WhatsApp';
 import Scroll from './components/Scroll/Scroll';
 // LANDINGPAGE
 import LandingPage from './pages/Landing/LandingPage';
+import LoginTecnologyPage from './pages/Landing/01NavBar/00PreNavBar/01LoginTecnology/LoginTecnologyPage';
+import LoginAdminPage from './pages/Landing/01NavBar/00PreNavBar/02LoginAdmin/LoginAdminPage';
 import LoginPage from './pages/Landing/01NavBar/00PreNavBar/03LoginColaborators/LoginPage';
 // NAVBAR
 import SIGPage from './pages/Landing/01NavBar/01SIG/SIGPage';
@@ -86,7 +88,10 @@ function App() {
                 <Routes>
                     {/* ----------LANDINGPAGE---------- */}
                     <Route path='/' element={<LandingPage />} />
+                    <Route path='/tecnology' element={<LoginTecnologyPage />} />
+                    <Route path='/admin' element={<LoginAdminPage />} />
                     <Route path='/login' element={<LoginPage />} />
+
                     <Route path='/sig' element={<SIGPage />} />
                     {/* ----------SIG OPERACIONES---------- */}
                     <Route path='/sig/operations' element={<OperationsPage />} />
