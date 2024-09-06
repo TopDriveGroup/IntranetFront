@@ -108,7 +108,7 @@ function SideBarOperations() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Procedimientos {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Formularios {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
                 {isFormsSubMenuOpen && (
@@ -118,12 +118,6 @@ function SideBarOperations() {
                             className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Formularios de creación
-                        </Link>
-                        <Link
-                            to='/sig/operations/forms'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
                         </Link>
                     </div>
                 )}
@@ -145,18 +139,12 @@ function SideBarOperations() {
                             to='/sig/operations/procedures'
                             className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
-                            Formularios de creación
-                        </Link>
-                        <Link
-                            to='/sig/operations/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
+                            Procedimientos
                         </Link>
                     </div>
                 )}
 
-                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/procedures' || location.pathname === '/sig/operations/procedures') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/registers' || location.pathname === '/sig/operations/registers') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -170,14 +158,8 @@ function SideBarOperations() {
                 {isRegistersSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/operations/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
-                        <Link
-                            to='/sig/operations/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/operations/registers'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/registers' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Registro Uno
                         </Link>
@@ -197,12 +179,6 @@ function SideBarOperations() {
                 </div>
                 {isIndicatorsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
-                        <Link
-                            to='/sig/operations/indicators'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
                         <Link
                             to='/sig/operations/indicators'
                             className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/operations/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}

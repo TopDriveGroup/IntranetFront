@@ -4,10 +4,11 @@ import Footer from '../../../../../components/LandingPage/Footer/Footer';
 import styles from './styles.module.css';
 
 function OperationsPage() {
+
     return (
         <div>
             <NavBar />
-            <div className={`${styles.container} p-2 d-flex`}>
+            <div className={`${styles.container} d-flex`}>
                 <SideBarOperations />
                 <div className={`${styles.component} p-3`}>
                     <h2 className={`${styles.title} `}>Operaciones</h2>

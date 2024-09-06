@@ -3,7 +3,7 @@ import jsCookie from 'js-cookie';
 import { AppDispatch } from '../store';
 import axiosInstance from '../../api/axios';
 import { ICollaborator } from '../../types/collaborator.types';
-import { setCollaboratorData, setCollaboratorErrors, postCollaboratorRegisterStart, isAuthenticatedStatus, postCollaboratorLoginStart, getCollaboratorProfileStart, sendDocumentToSharePointStart } from './colaboratorSlice';
+import { setCollaboratorData, setCollaboratorErrors, postCollaboratorRegisterStart, isAuthenticatedStatus, loginStart, profileStart, postCollaboratorLoginStart, getCollaboratorProfileStart, sendDocumentToSharePointStart } from './colaboratorSlice';
 
 //REGISTRO DE COLABORADORES
 export const postCollaboratorRegister = (formData: ICollaborator) => async (dispatch: AppDispatch) => {
@@ -16,6 +16,41 @@ export const postCollaboratorRegister = (formData: ICollaborator) => async (disp
             dispatch(setCollaboratorErrors(error.response?.data));
         } else {
             dispatch(setCollaboratorErrors(error));
+        }
+    }
+};
+
+//LOGIN DE USUARIOS
+export const loginUser = (loginData: { email: string; password: string }) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await axiosInstance.post('/auth/login', loginData);
+        jsCookie.set('token', response.data.token); 
+        dispatch(loginStart(response.data.serResult));
+    } catch (error: any) {
+        if (error.response && error.response.status === 401) {
+            dispatch(setCollaboratorErrors(error.response?.data.message));
+        } else {
+            dispatch(setCollaboratorErrors(error.response?.data.message));
+        }
+    }
+};
+
+//PERFIL DE USUARIO
+export const getProfileCollaborator = (token: string) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await axiosInstance.get('/auth/profile', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
+        });
+        dispatch(profileStart(response.data));
+        // console.log('response.data: ', response.data)
+    } catch (error: any) {
+        if (error.response && error.response.status === 401) {
+            dispatch(setCollaboratorErrors(error.response?.data.message));
+        } else {
+            dispatch(setCollaboratorErrors(error.message));
         }
     }
 };

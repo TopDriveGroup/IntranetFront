@@ -6,9 +6,9 @@ import styles from './styles.module.css';
 function DocumentsPage() {
 
     return (
-        <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between overflow-hidden overflow-y-auto`}>
+        <div>
             <NavBar />
-            <div className={`${styles.container__Component} d-flex`}>
+            <div className={`${styles.container} p-2 d-flex`}>
                 <SideBarDocuments />
                 <div className={`${styles.component} p-3`}>
                     <h2 className={`${styles.title} `}>Documentos</h2>
