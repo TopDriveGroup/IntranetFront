@@ -14,4 +14,4 @@ Allow: /*.woff
 Allow: /*.gif
 Allow: /*.ico
 
-Sitemap: https://topdrivegroup.com/sitemap.xml
+Sitemap: https://intranet.topdrivegroup.com/sitemap.xml

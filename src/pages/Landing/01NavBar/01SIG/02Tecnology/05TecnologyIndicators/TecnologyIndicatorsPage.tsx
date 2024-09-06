@@ -1,5 +1,5 @@
 import NavBar from '../../../../../../components/LandingPage/00NavBar/NavBar';
-import SideBarTecnology from '../../../../../../components/LandingPage/00NavBar/01SIG/02Tecnology/SideBarTecnology/SideBarTecnology';
+import SideBarTecnology from '../../../../../../components/LandingPage/00NavBar/01SIG/02Tecnology/SideBarTechnology/SideBarTechnology';
 import Footer from '../../../../../../components/LandingPage/Footer/Footer';
 import styles from './styles.module.css';
 

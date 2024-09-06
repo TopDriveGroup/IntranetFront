@@ -7,7 +7,7 @@ import { IoHome } from "react-icons/io5";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import styles from './styles.module.css';
 
-function SideBarTecnology() {
+function SideBarTechnology() {
     const location = useLocation();
 
     // Leer el estado inicial de los submenús desde localStorage
@@ -58,19 +58,23 @@ function SideBarTecnology() {
     };
 
     // RUTAS CON PARAMS
-    const matchPolicies = useMatch('/sig/tecnology/policies');
+    const matchPolicies = useMatch('/sig/technology/policies/*');
+    const matchForms = useMatch('/sig/technology/forms/*');
+    const matchProcedures = useMatch('/sig/technology/procedures/*');
+    const matchRegisters = useMatch('/sig/technology/registers/*');
+    const matchIndicators = useMatch('/sig/technology/indicators/*');
 
     return (
         <div className={`${styles.container} overflow-y-auto position-sticky border-top-0`}>
             <div className={`${styles.container__Component} p-1`}>
                 <div className={`${styles.container__Section} mb-2 d-flex align-items-center justify-content-end`}>
-                    {location.pathname !== "/sig/tecnology" && (
+                    {location.pathname !== "/sig/technology" && (
                         <div>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
-                            <Link to="/sig/tecnology" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Tecnología</Link>
+                            <Link to="/sig/technology" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Tecnología</Link>
                         </div>
                     )}
-                    {location.pathname === "/sig/tecnology" && (
+                    {location.pathname === "/sig/technology" && (
                         <div>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
                             <Link to="/sig" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de SIG</Link>
@@ -78,7 +82,7 @@ function SideBarTecnology() {
                     )}
                 </div>
 
-                <div onClick={togglePoliciesSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/tecnology/policies' || location.pathname === '/sig/tecnology/policies' || matchPolicies) ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={togglePoliciesSubMenuOpen} className={`${styles.container__Section} ${matchPolicies ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -92,15 +96,15 @@ function SideBarTecnology() {
                 {isPoliciesSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/tecnology/policies'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/policies' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/technology/policies'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/technology/policies' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Políticas
                         </Link>
                     </div>
                 )}
 
-                <div onClick={toggleFormsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/tecnology/forms' || location.pathname === '/sig/tecnology/forms') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleFormsSubMenuOpen} className={`${styles.container__Section} ${matchForms ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -108,27 +112,21 @@ function SideBarTecnology() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Procedimientos {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Formularios {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
                 {isFormsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/tecnology/forms'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/technology/forms'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/technology/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Formularios de creación
-                        </Link>
-                        <Link
-                            to='/sig/tecnology/forms'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
                         </Link>
                     </div>
                 )}
 
-                <div onClick={toggleProceduresSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/tecnology/procedures' || location.pathname === '/sig/tecnology/procedures') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleProceduresSubMenuOpen} className={`${styles.container__Section} ${matchProcedures ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -142,21 +140,15 @@ function SideBarTecnology() {
                 {isProceduresSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/tecnology/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/technology/procedures'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/technology/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Formularios de creación
-                        </Link>
-                        <Link
-                            to='/sig/tecnology/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
                         </Link>
                     </div>
                 )}
 
-                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/tecnology/procedures' || location.pathname === '/sig/tecnology/procedures') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${matchRegisters ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -170,21 +162,15 @@ function SideBarTecnology() {
                 {isRegistersSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/tecnology/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
-                        <Link
-                            to='/sig/tecnology/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/technology/registers'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/technology/registers' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Registro Uno
                         </Link>
                     </div>
                 )}
 
-                <div onClick={toggleIndicatorsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/tecnology/indicators' || location.pathname === '/sig/tecnology/indicators') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleIndicatorsSubMenuOpen} className={`${styles.container__Section} ${matchIndicators ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -198,14 +184,8 @@ function SideBarTecnology() {
                 {isIndicatorsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/tecnology/indicators'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
-                        <Link
-                            to='/sig/tecnology/indicators'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/tecnology/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/technology/indicators'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/technology/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Registro Uno
                         </Link>
@@ -216,4 +196,4 @@ function SideBarTecnology() {
     );
 }
 
-export default SideBarTecnology;
+export default SideBarTechnology;

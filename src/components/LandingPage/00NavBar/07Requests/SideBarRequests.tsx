@@ -16,21 +16,21 @@ function SideBarRequests() {
         return storedValue !== null ? JSON.parse(storedValue) : defaultValue;
     };
 
-    const [isTechnicalDataSheetsSubMenuOpen, setTechnicalDataSheetsSubMenuOpen] = useState(() => getInitialState('technicalDataSheetsSubMenuOpen', false));
-    const [isConformityCertificatesSubMenuOpen, setConformityCertificatesSubMenuOpen] = useState(() => getInitialState('conformityCertificatesSubMenuOpen', false));
+    const [isTechSubMenuOpen, setTechSubMenuOpen] = useState(() => getInitialState('techSubMenuOpen', false));
+    const [isQualitySubMenuOpen, setQualitySubMenuOpen] = useState(() => getInitialState('qualitySubMenuOpen', false));
 
-    // SUBMENU DE PLITICAS
-    const toggleTechnicalDataSheetsSubMenuOpen = () => {
-        const newState = !isTechnicalDataSheetsSubMenuOpen;
-        setTechnicalDataSheetsSubMenuOpen(newState);
-        localStorage.setItem('technicalDataSheetsSubMenuOpen', JSON.stringify(newState));
+    // SUBMENU DE SOLICITUDES TECH
+    const toggleTechSubMenuOpen = () => {
+        const newState = !isTechSubMenuOpen;
+        setTechSubMenuOpen(newState);
+        localStorage.setItem('techSubMenuOpen', JSON.stringify(newState));
     };
 
-    // SUBMENU DE FORMATOS
-    const toggleConformityCertificatesSubMenuOpen = () => {
-        const newState = !isConformityCertificatesSubMenuOpen;
-        setConformityCertificatesSubMenuOpen(newState);
-        localStorage.setItem('conformityCertificatesSubMenuOpen', JSON.stringify(newState));
+    // SUBMENU DE SOLICITUDES QUALITY
+    const toggleQualitySubMenuOpen = () => {
+        const newState = !isQualitySubMenuOpen;
+        setQualitySubMenuOpen(newState);
+        localStorage.setItem('qualitySubMenuOpen', JSON.stringify(newState));
     };
 
     return (
@@ -45,7 +45,7 @@ function SideBarRequests() {
                     )}
                 </div>
 
-                <div onClick={toggleTechnicalDataSheetsSubMenuOpen}
+                <div onClick={toggleTechSubMenuOpen}
                     className={`${styles.container__Section}
                     ${(location.pathname === '/requests/tech') ? styles.active : ''}  mb-2 d-flex align-items-center`}
                 >
@@ -56,10 +56,10 @@ function SideBarRequests() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Tech {isTechnicalDataSheetsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Tech {isTechSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isTechnicalDataSheetsSubMenuOpen && (
+                {isTechSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/requests/tech'
@@ -67,10 +67,22 @@ function SideBarRequests() {
                         >
                             Tech
                         </Link>
+                        <Link
+                            to='/requests/tech'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/requests/tech' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            Suministro de material POP
+                        </Link>
+                        <Link
+                            to='/requests/tech'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/requests/tech' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            HelpDesk
+                        </Link>
                     </div>
                 )}
 
-                <div onClick={toggleConformityCertificatesSubMenuOpen}
+                <div onClick={toggleQualitySubMenuOpen}
                     className={`${styles.container__Section}
                     ${(location.pathname === '/requests/quality') ? styles.active : ''} 
                     mb-2 d-flex align-items-center`}
@@ -82,10 +94,10 @@ function SideBarRequests() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Quality {isConformityCertificatesSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Quality {isQualitySubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isConformityCertificatesSubMenuOpen && (
+                {isQualitySubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/requests/quality'
