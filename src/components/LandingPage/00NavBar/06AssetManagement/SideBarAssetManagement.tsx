@@ -16,29 +16,29 @@ function SideBarAssetManagement() {
         return storedValue !== null ? JSON.parse(storedValue) : defaultValue;
     };
 
-    const [isTechnicalDataSheetsSubMenuOpen, setTechnicalDataSheetsSubMenuOpen] = useState(() => getInitialState('technicalDataSheetsSubMenuOpen', false));
-    const [isConformityCertificatesSubMenuOpen, setConformityCertificatesSubMenuOpen] = useState(() => getInitialState('conformityCertificatesSubMenuOpen', false));
-    const [isKitsPackagesSubMenuOpen, setKitsPackagesSubMenuOpen] = useState(() => getInitialState('kitsPackagesSubMenuOpen', false));
+    const [isMyAssetsSubMenuOpen, setMyAssetsSubMenuOpen] = useState(() => getInitialState('myAssetsSubMenuOpen', false));
+    const [isAssetRequestSubMenuOpen, setAssetRequestSubMenuOpen] = useState(() => getInitialState('assetRequestSubMenuOpen', false));
+    const [isAssetSummarySubMenuOpen, setAssetSummarySubMenuOpen] = useState(() => getInitialState('assetSummarySubMenuOpen', false));
 
-    // SUBMENU DE PLITICAS
-    const toggleTechnicalDataSheetsSubMenuOpen = () => {
-        const newState = !isTechnicalDataSheetsSubMenuOpen;
-        setTechnicalDataSheetsSubMenuOpen(newState);
-        localStorage.setItem('technicalDataSheetsSubMenuOpen', JSON.stringify(newState));
+    // SUBMENU DE MIS ACTIVOS
+    const toggleMyAssetsSubMenuOpen = () => {
+        const newState = !isMyAssetsSubMenuOpen;
+        setMyAssetsSubMenuOpen(newState);
+        localStorage.setItem('myAssetsSubMenuOpen', JSON.stringify(newState));
     };
 
-    // SUBMENU DE FORMATOS
-    const toggleConformityCertificatesSubMenuOpen = () => {
-        const newState = !isConformityCertificatesSubMenuOpen;
-        setConformityCertificatesSubMenuOpen(newState);
-        localStorage.setItem('conformityCertificatesSubMenuOpen', JSON.stringify(newState));
+    // SUBMENU DE SOLICITUD DE ACTIVOS
+    const toggleAssetRequestSubMenuOpen = () => {
+        const newState = !isAssetRequestSubMenuOpen;
+        setAssetRequestSubMenuOpen(newState);
+        localStorage.setItem('assetRequestSubMenuOpen', JSON.stringify(newState));
     };
 
-    // SUBMENU DE PROCEDIMIENTOS
-    const toggleKitsPackagesSubMenuOpen = () => {
-        const newState = !isKitsPackagesSubMenuOpen;
-        setKitsPackagesSubMenuOpen(newState);
-        localStorage.setItem('kitsPackagesSubMenuOpen', JSON.stringify(newState));
+    // SUBMENU DE RESUMEN DE ACTIVOS
+    const toggleAssetSummarySubMenuOpen = () => {
+        const newState = !isAssetSummarySubMenuOpen;
+        setAssetSummarySubMenuOpen(newState);
+        localStorage.setItem('assetSummarySubMenuOpen', JSON.stringify(newState));
     };
 
     return (
@@ -53,7 +53,7 @@ function SideBarAssetManagement() {
                     )}
                 </div>
 
-                <div onClick={toggleTechnicalDataSheetsSubMenuOpen}
+                <div onClick={toggleMyAssetsSubMenuOpen}
                     className={`${styles.container__Section}
                     ${(location.pathname === '/asset-management/my-assets') ? styles.active : ''}  mb-2 d-flex align-items-center`}
                 >
@@ -64,10 +64,10 @@ function SideBarAssetManagement() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Mis activos {isTechnicalDataSheetsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Mis activos {isMyAssetsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isTechnicalDataSheetsSubMenuOpen && (
+                {isMyAssetsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/asset-management/my-assets'
@@ -78,7 +78,7 @@ function SideBarAssetManagement() {
                     </div>
                 )}
 
-                <div onClick={toggleConformityCertificatesSubMenuOpen}
+                <div onClick={toggleAssetRequestSubMenuOpen}
                     className={`${styles.container__Section}
                     ${(location.pathname === '/asset-management/asset-request') ? styles.active : ''} 
                     mb-2 d-flex align-items-center`}
@@ -90,10 +90,10 @@ function SideBarAssetManagement() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Solicitud de activos {isConformityCertificatesSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Solicitud de activos {isAssetRequestSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isConformityCertificatesSubMenuOpen && (
+                {isAssetRequestSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/asset-management/asset-request'
@@ -104,7 +104,7 @@ function SideBarAssetManagement() {
                     </div>
                 )}
 
-                <div onClick={toggleKitsPackagesSubMenuOpen}
+                <div onClick={toggleAssetSummarySubMenuOpen}
                     className={`${styles.container__Section}
                     ${(location.pathname === '/asset-management/asset-summary') ? styles.active : ''} 
                     mb-2 d-flex align-items-center`}
@@ -116,10 +116,10 @@ function SideBarAssetManagement() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Resumen de activos {isKitsPackagesSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Resumen de activos {isAssetSummarySubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isKitsPackagesSubMenuOpen && (
+                {isAssetSummarySubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/asset-management/asset-summary'

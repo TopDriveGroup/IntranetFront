@@ -16,45 +16,45 @@ function SideBarOperations() {
         return storedValue !== null ? JSON.parse(storedValue) : defaultValue;
     };
 
-    const [isPoliciesSubMenuOpen, setPoliciesSubMenuOpen] = useState(() => getInitialState('policiesSubMenuOpen', false));
-    const [isFormsSubMenuOpen, setFormsSubMenuOpen] = useState(() => getInitialState('formsSubMenuOpen', false));
-    const [isProceduresSubMenuOpen, setProceduresSubMenuOpen] = useState(() => getInitialState('proceduresSubMenuOpen', false));
-    const [isRegistersSubMenuOpen, setRegistersSubMenuOpen] = useState(() => getInitialState('registersSubMenuOpen', false));
-    const [isIndicatorsSubMenuOpen, setIndicatorsSubMenuOpen] = useState(() => getInitialState('indicatorsSubMenuOpen', false));
+    const [isPoliciesOperationsSubMenuOpen, setPoliciesOperationsSubMenuOpen] = useState(() => getInitialState('policiesOperationsSubMenuOpen', false));
+    const [isFormsOperationsSubMenuOpen, setFormsOperationsSubMenuOpen] = useState(() => getInitialState('formsOperationsSubMenuOpen', false));
+    const [isProceduresOperationsSubMenuOpen, setProceduresOperationsSubMenuOpen] = useState(() => getInitialState('proceduresOperationsSubMenuOpen', false));
+    const [isRegistersOperationsSubMenuOpen, setRegistersOperationsSubMenuOpen] = useState(() => getInitialState('registersOperationsSubMenuOpen', false));
+    const [isIndicatorsOperationsSubMenuOpen, setIndicatorsOperationsSubMenuOpen] = useState(() => getInitialState('indicatorsOperationsSubMenuOpen', false));
 
-    // SUBMENU DE PLITICAS
-    const togglePoliciesSubMenuOpen = () => {
-        const newState = !isPoliciesSubMenuOpen;
-        setPoliciesSubMenuOpen(newState);
-        localStorage.setItem('policiesSubMenuOpen', JSON.stringify(newState));
+    // SUBMENU DE POLITICAS
+    const togglePoliciesOperationsSubMenuOpen = () => {
+        const newState = !isPoliciesOperationsSubMenuOpen;
+        setPoliciesOperationsSubMenuOpen(newState);
+        localStorage.setItem('policiesOperationsSubMenuOpen', JSON.stringify(newState));
     };
 
     // SUBMENU DE FORMATOS
-    const toggleFormsSubMenuOpen = () => {
-        const newState = !isFormsSubMenuOpen;
-        setFormsSubMenuOpen(newState);
-        localStorage.setItem('formsSubMenuOpen', JSON.stringify(newState));
+    const toggleFormsOperationsSubMenuOpen = () => {
+        const newState = !isFormsOperationsSubMenuOpen;
+        setFormsOperationsSubMenuOpen(newState);
+        localStorage.setItem('formsOperationsSubMenuOpen', JSON.stringify(newState));
     };
 
     // SUBMENU DE PROCEDIMIENTOS
-    const toggleProceduresSubMenuOpen = () => {
-        const newState = !isProceduresSubMenuOpen;
-        setProceduresSubMenuOpen(newState);
-        localStorage.setItem('proceduresSubMenuOpen', JSON.stringify(newState));
+    const toggleProceduresOperationsSubMenuOpen = () => {
+        const newState = !isProceduresOperationsSubMenuOpen;
+        setProceduresOperationsSubMenuOpen(newState);
+        localStorage.setItem('proceduresOperationsSubMenuOpen', JSON.stringify(newState));
     };
 
     // SUBMENU DE PROCEDIMIENTOS
-    const toggleRegistersSubMenuOpen = () => {
-        const newState = !isRegistersSubMenuOpen;
-        setRegistersSubMenuOpen(newState);
-        localStorage.setItem('registersSubMenuOpen', JSON.stringify(newState));
+    const toggleRegistersOperationsSubMenuOpen = () => {
+        const newState = !isRegistersOperationsSubMenuOpen;
+        setRegistersOperationsSubMenuOpen(newState);
+        localStorage.setItem('registersOperationsSubMenuOpen', JSON.stringify(newState));
     };
 
     // SUBMENU DE PROCEDIMIENTOS
-    const toggleIndicatorsSubMenuOpen = () => {
-        const newState = !isIndicatorsSubMenuOpen;
-        setIndicatorsSubMenuOpen(newState);
-        localStorage.setItem('indicatorsSubMenuOpen', JSON.stringify(newState));
+    const toggleIndicatorsOperationsSubMenuOpen = () => {
+        const newState = !isIndicatorsOperationsSubMenuOpen;
+        setIndicatorsOperationsSubMenuOpen(newState);
+        localStorage.setItem('indicatorsOperationsSubMenuOpen', JSON.stringify(newState));
     };
 
     // RUTAS CON PARAMS
@@ -65,20 +65,20 @@ function SideBarOperations() {
             <div className={`${styles.container__Component} p-1`}>
                 <div className={`${styles.container__Section} mb-2 d-flex align-items-center justify-content-end`}>
                     {location.pathname !== "/sig/operations" && (
-                        <div>
+                        <div className={`${styles.aaaaaaaaaaa} `}>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
                             <Link to="/sig/operations" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Operaciones</Link>
                         </div>
                     )}
                     {location.pathname === "/sig/operations" && (
-                        <div>
+                        <div className={`${styles.aaaaaaaaaaa} `}>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
                             <Link to="/sig" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de SIG</Link>
                         </div>
                     )}
                 </div>
 
-                <div onClick={togglePoliciesSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/policies' || location.pathname === '/sig/operations/policies' || matchPolicies) ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={togglePoliciesOperationsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/policies' || location.pathname === '/sig/operations/policies' || matchPolicies) ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -86,10 +86,10 @@ function SideBarOperations() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Políticas {isPoliciesSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Políticas {isPoliciesOperationsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isPoliciesSubMenuOpen && (
+                {isPoliciesOperationsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/sig/operations/policies'
@@ -100,7 +100,7 @@ function SideBarOperations() {
                     </div>
                 )}
 
-                <div onClick={toggleFormsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/forms' || location.pathname === '/sig/operations/forms') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleFormsOperationsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/forms' || location.pathname === '/sig/operations/forms') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -108,10 +108,10 @@ function SideBarOperations() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Formularios {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Formularios {isFormsOperationsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isFormsSubMenuOpen && (
+                {isFormsOperationsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/sig/operations/forms'
@@ -122,7 +122,7 @@ function SideBarOperations() {
                     </div>
                 )}
 
-                <div onClick={toggleProceduresSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/procedures' || location.pathname === '/sig/operations/procedures') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleProceduresOperationsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/procedures' || location.pathname === '/sig/operations/procedures') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -130,10 +130,10 @@ function SideBarOperations() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Procedimientos {isProceduresSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Procedimientos {isProceduresOperationsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isProceduresSubMenuOpen && (
+                {isProceduresOperationsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/sig/operations/procedures'
@@ -144,7 +144,7 @@ function SideBarOperations() {
                     </div>
                 )}
 
-                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/registers' || location.pathname === '/sig/operations/registers') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleRegistersOperationsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/registers' || location.pathname === '/sig/operations/registers') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -152,10 +152,10 @@ function SideBarOperations() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Registro(Solo el área) {isRegistersSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Registro(Solo el área) {isRegistersOperationsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isRegistersSubMenuOpen && (
+                {isRegistersOperationsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/sig/operations/registers'
@@ -166,7 +166,7 @@ function SideBarOperations() {
                     </div>
                 )}
 
-                <div onClick={toggleIndicatorsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/indicators' || location.pathname === '/sig/operations/indicators') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleIndicatorsOperationsSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/operations/indicators' || location.pathname === '/sig/operations/indicators') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -174,10 +174,10 @@ function SideBarOperations() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Indicadores(Solo el área) {isIndicatorsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Indicadores(Solo el área) {isIndicatorsOperationsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isIndicatorsSubMenuOpen && (
+                {isIndicatorsOperationsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/sig/operations/indicators'

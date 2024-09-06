@@ -109,12 +109,12 @@ function App() {
                     <Route path='/sig/operations/registers' element={<RegistersPage />} />
                     <Route path='/sig/operations/indicators' element={<IndicatorsPage />} />
                     {/* ----------SIG TECNOLOGIA---------- */}
-                    <Route path='/sig/tecnology' element={<TecnologyPage />} />
-                    <Route path='/sig/tecnology/policies' element={<TecnologyPoliciesPage />} />
-                    <Route path='/sig/tecnology/forms' element={<TecnologyFormsPage />} />
-                    <Route path='/sig/tecnology/procedures' element={<TecnologyProceduresPage />} />
-                    <Route path='/sig/tecnology/registers' element={<TecnologyRegistersPage />} />
-                    <Route path='/sig/tecnology/indicators' element={<TecnologyIndicatorsPage />} />
+                    <Route path='/sig/technology' element={<TecnologyPage />} />
+                    <Route path='/sig/technology/policies' element={<TecnologyPoliciesPage />} />
+                    <Route path='/sig/technology/forms' element={<TecnologyFormsPage />} />
+                    <Route path='/sig/technology/procedures' element={<TecnologyProceduresPage />} />
+                    <Route path='/sig/technology/registers' element={<TecnologyRegistersPage />} />
+                    <Route path='/sig/technology/indicators' element={<TecnologyIndicatorsPage />} />
                     {/* ----------SIG CALIDAD Y ADMINISTRACION---------- */}
                     <Route path='/sig/quality-and-administrative' element={<QualityAdministrativePage />} />
                     <Route path='/sig/quality-and-administrative/policies' element={<QualityAdministrativePoliciesPage />} />

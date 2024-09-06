@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useMatch } from 'react-router-dom';
 //ELEMENTOS DEL COMPONENTE
 import LogoTopDrive from '../../../assets/TopDriveGroup/LogoTopDrive.svg';
 import { BiWorld } from "react-icons/bi";
@@ -7,8 +7,6 @@ import { AiOutlineUser } from "react-icons/ai";
 import styles from './styles.module.css';
 
 function NavBar() {
-    const location = useLocation();
-
     // LENGUAJE
     const menuRef = useRef<HTMLDivElement>(null);
     const languageMenuRef = useRef<HTMLDivElement>(null);
@@ -29,6 +27,14 @@ function NavBar() {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [menuRef, languageMenuRef]);
+
+    const matchSIG = useMatch('/sig/*');
+    const matchAboutUs = useMatch('/about-us/*');
+    const matchDocuments = useMatch('/documents/*');
+    const matchTDUnivertity = useMatch('/top-drive-univertity/*');
+    const matchTechnicalReport = useMatch('/technical-report/*');
+    const matchAssetManagement = useMatch('/asset-management/*');
+    const matchRequests = useMatch('/requests/*');
 
     return (
         <div className={`${styles.container} position-fixed top-0`}>
@@ -71,42 +77,25 @@ function NavBar() {
                     <img src={LogoTopDrive} alt="Logo Top Drive Group" className={`${styles.logo} `} />
                 </Link>
                 <div className={`${styles.menu} d-flex align-items-center justify-content-center`} >
-                    <Link to="/sig"
-                        className={`${styles.home}
-                        ${(location.pathname === '/sig' ||
-                        location.pathname === '/sig/operations' ||
-                        location.pathname === '/sig/operations/policies' ||
-                        location.pathname === '/sig/operations/forms' ||
-                        location.pathname === '/sig/operations/procedures' ||
-                        location.pathname === '/sig/operations/registers' ||
-                        location.pathname === '/sig/operations/indicators' ?
-                        styles.active : '')}
-                        d-flex align-items-center justify-content-center text-decoration-none`}
-                    >
+                    <Link to="/sig" className={`${styles.home} ${matchSIG ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         SIG
                     </Link>
-                    <Link to="/about-us" className={`${styles.home} ${location.pathname === '/about-us' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/about-us" className={`${styles.home} ${matchAboutUs ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Nosotros
                     </Link>
-                    <Link to="/documents"className={`${styles.aboutUs} ${location.pathname === '/documents' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/documents"className={`${styles.aboutUs} ${matchDocuments ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Documentos
                     </Link>
-                    <Link to="/top-drive-univertity"
-                        className={`${styles.products}
-                        ${(location.pathname === '/top-drive-univertity' ||
-                        location.pathname === '/top-drive-univertity/corporate-induction-for-new-personnel' ||
-                        location.pathname === '/top-drive-univertity/training'
-                        ? styles.active : '')}
-                        d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/top-drive-univertity" className={`${styles.products} ${matchTDUnivertity ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         TD Univertity
                     </Link>
-                    <Link to="/technical-report" className={`${styles.quotation} ${location.pathname === '/technical-report' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/technical-report" className={`${styles.quotation} ${matchTechnicalReport ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Repositorio Técnico
                     </Link>
-                    <Link to="/asset-management" className={`${styles.quotation} ${location.pathname === '/asset-management' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/asset-management" className={`${styles.quotation} ${matchAssetManagement ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Gestión de activos
                     </Link>
-                    <Link to="/requests" className={`${styles.quotation} ${location.pathname === '/requests' ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
+                    <Link to="/requests" className={`${styles.quotation} ${matchRequests ? styles.active : ''} d-flex align-items-center justify-content-center text-decoration-none`} >
                         Solicitudes
                     </Link>
                 </div>

@@ -108,7 +108,7 @@ function SideBarFinantial() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Procedimientos {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Formularios {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
                 {isFormsSubMenuOpen && (
@@ -118,12 +118,6 @@ function SideBarFinantial() {
                             className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Formularios de creación
-                        </Link>
-                        <Link
-                            to='/sig/finantial/forms'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
                         </Link>
                     </div>
                 )}
@@ -147,16 +141,10 @@ function SideBarFinantial() {
                         >
                             Formularios de creación
                         </Link>
-                        <Link
-                            to='/sig/finantial/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
-                        </Link>
                     </div>
                 )}
 
-                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/finantial/procedures' || location.pathname === '/sig/finantial/procedures') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/finantial/registers' || location.pathname === '/sig/finantial/registers') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -170,14 +158,8 @@ function SideBarFinantial() {
                 {isRegistersSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/finantial/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
-                        <Link
-                            to='/sig/finantial/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/finantial/registers'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/registers' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Registro Uno
                         </Link>
@@ -197,12 +179,6 @@ function SideBarFinantial() {
                 </div>
                 {isIndicatorsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
-                        <Link
-                            to='/sig/finantial/indicators'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
                         <Link
                             to='/sig/finantial/indicators'
                             className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/finantial/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}
