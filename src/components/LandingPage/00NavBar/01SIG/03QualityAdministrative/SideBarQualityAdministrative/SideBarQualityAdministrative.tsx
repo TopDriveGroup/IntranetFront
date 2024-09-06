@@ -108,7 +108,7 @@ function SideBarQualityAdministrative() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Procedimientos {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Formularios {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
                 {isFormsSubMenuOpen && (
@@ -118,12 +118,6 @@ function SideBarQualityAdministrative() {
                             className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Formularios de creación
-                        </Link>
-                        <Link
-                            to='/sig/quality-and-administrative/forms'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/forms' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
                         </Link>
                     </div>
                 )}
@@ -147,16 +141,10 @@ function SideBarQualityAdministrative() {
                         >
                             Formularios de creación
                         </Link>
-                        <Link
-                            to='/sig/quality-and-administrative/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Formularios guardados
-                        </Link>
                     </div>
                 )}
 
-                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/quality-and-administrative/procedures' || location.pathname === '/sig/quality-and-administrative/procedures') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
+                <div onClick={toggleRegistersSubMenuOpen} className={`${styles.container__Section} ${(location.pathname === '/sig/quality-and-administrative/registers' || location.pathname === '/sig/quality-and-administrative/registers') ? styles.active : ''}  mb-2 d-flex align-items-center`}>
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
@@ -170,14 +158,8 @@ function SideBarQualityAdministrative() {
                 {isRegistersSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
-                            to='/sig/quality-and-administrative/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
-                        <Link
-                            to='/sig/quality-and-administrative/procedures'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/procedures' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                            to='/sig/quality-and-administrative/registers'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/registers' ? styles.active__Sub_Menu : ''} text-decoration-none`}
                         >
                             Registro Uno
                         </Link>
@@ -197,12 +179,6 @@ function SideBarQualityAdministrative() {
                 </div>
                 {isIndicatorsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
-                        <Link
-                            to='/sig/quality-and-administrative/indicators'
-                            className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}
-                        >
-                            Registro Uno
-                        </Link>
                         <Link
                             to='/sig/quality-and-administrative/indicators'
                             className={`${styles.link__Sub_Menu} ${location.pathname === '/sig/quality-and-administrative/indicators' ? styles.active__Sub_Menu : ''} text-decoration-none`}

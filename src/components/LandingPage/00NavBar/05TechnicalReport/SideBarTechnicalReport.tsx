@@ -19,34 +19,34 @@ function SideBarTechnicalReport() {
     const [isTechnicalDataSheetsSubMenuOpen, setTechnicalDataSheetsSubMenuOpen] = useState(() => getInitialState('technicalDataSheetsSubMenuOpen', false));
     const [isConformityCertificatesSubMenuOpen, setConformityCertificatesSubMenuOpen] = useState(() => getInitialState('conformityCertificatesSubMenuOpen', false));
     const [isKitsPackagesSubMenuOpen, setKitsPackagesSubMenuOpen] = useState(() => getInitialState('kitsPackagesSubMenuOpen', false));
-    const [isSupportTechnicalReportSubMenuOpen, setSupportTechnicalReportSubMenuOpen] = useState(() => getInitialState('supportTechnicalReportSubMenuOpen', false));
+    const [isSupportDocumentsSubMenuOpen, setSupportDocumentsSubMenuOpen] = useState(() => getInitialState('supportDocumentsSubMenuOpen', false));
 
-    // SUBMENU DE PLITICAS
+    // SUBMENU DE FICHAS TECNICAS
     const toggleTechnicalDataSheetsSubMenuOpen = () => {
         const newState = !isTechnicalDataSheetsSubMenuOpen;
         setTechnicalDataSheetsSubMenuOpen(newState);
         localStorage.setItem('technicalDataSheetsSubMenuOpen', JSON.stringify(newState));
     };
 
-    // SUBMENU DE FORMATOS
+    // SUBMENU DE CERTIFICADO DE CONFORMIDAD
     const toggleConformityCertificatesSubMenuOpen = () => {
         const newState = !isConformityCertificatesSubMenuOpen;
         setConformityCertificatesSubMenuOpen(newState);
         localStorage.setItem('conformityCertificatesSubMenuOpen', JSON.stringify(newState));
     };
 
-    // SUBMENU DE PROCEDIMIENTOS
+    // SUBMENU DE KITS Y PAQUETES
     const toggleKitsPackagesSubMenuOpen = () => {
         const newState = !isKitsPackagesSubMenuOpen;
         setKitsPackagesSubMenuOpen(newState);
         localStorage.setItem('kitsPackagesSubMenuOpen', JSON.stringify(newState));
     };
 
-    // SUBMENU DE PROCEDIMIENTOS
-    const toggleSupportTechnicalReportSubMenuOpen = () => {
-        const newState = !isSupportTechnicalReportSubMenuOpen;
-        setSupportTechnicalReportSubMenuOpen(newState);
-        localStorage.setItem('supportTechnicalReportSubMenuOpen', JSON.stringify(newState));
+    // SUBMENU DE DOCUMENTOS DE APOYO
+    const toggleSupportDocumentsSubMenuOpen = () => {
+        const newState = !isSupportDocumentsSubMenuOpen;
+        setSupportDocumentsSubMenuOpen(newState);
+        localStorage.setItem('supportDocumentsSubMenuOpen', JSON.stringify(newState));
     };
 
 
@@ -139,7 +139,7 @@ function SideBarTechnicalReport() {
                     </div>
                 )}
 
-                <div onClick={toggleSupportTechnicalReportSubMenuOpen}
+                <div onClick={toggleSupportDocumentsSubMenuOpen}
                     className={`${styles.container__Section}
                     ${(location.pathname === '/technical-report/support-documents') ? styles.active : ''} 
                     mb-2 d-flex align-items-center`}
@@ -151,10 +151,10 @@ function SideBarTechnicalReport() {
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Documentos de apoyo {isSupportTechnicalReportSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Documentos de apoyo {isSupportDocumentsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
                     </div>
                 </div>
-                {isSupportTechnicalReportSubMenuOpen && (
+                {isSupportDocumentsSubMenuOpen && (
                     <div className={styles.sub__Menu}>
                         <Link
                             to='/technical-report/support-documents'
