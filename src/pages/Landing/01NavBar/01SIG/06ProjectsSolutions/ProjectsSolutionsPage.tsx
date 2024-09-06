@@ -4,10 +4,11 @@ import Footer from '../../../../../components/LandingPage/Footer/Footer';
 import styles from './styles.module.css';
 
 function ProjectsSolutionsPage() {
+    
     return (
-        <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between`}>
+        <div>
             <NavBar />
-            <div className={`${styles.container__Component} d-flex`}>
+            <div className={`${styles.container} p-2 d-flex`}>
                 <SideBarProjectsSolutions />
                 <div className={`${styles.component} p-3`}>
                     <h2 className={`${styles.title} `}>Proyectos y Servicios</h2>
