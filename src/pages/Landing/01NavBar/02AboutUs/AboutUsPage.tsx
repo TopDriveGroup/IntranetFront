@@ -5,12 +5,11 @@ import styles from './styles.module.css';
 function AboutUsPage() {
 
     return (
-        <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between overflow-hidden overflow-y-auto`}>
+        <div>
             <NavBar />
-            <div className='d-flex'>
-                <div className='d-flex'>
-                    AboutUsPage
-                </div>
+            <div className={`${styles.container} p-4 `}>
+                <h2 className={`${styles.title} `}>Sobre la empresa</h2>
+
             </div>
             <Footer />
         </div>

@@ -1,116 +1,165 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useLocation, useMatch } from 'react-router-dom';
 // ELEMENTOS DEL COMPONENTE
 import { MdNavigateNext } from "react-icons/md";
-import { IoIosArrowRoundBack } from "react-icons/io";
+// import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoHome } from "react-icons/io5";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import styles from './styles.module.css';
-
-const setItemInLocalStorage = (key: string, value: any) => {
-    localStorage.setItem(key, JSON.stringify(value));
-};
-
-const getItemFromLocalStorage = (key: string, initialValue: any) => {
-    const storedValue = localStorage.getItem(key);
-    return storedValue ? JSON.parse(storedValue) : initialValue;
-};
 
 function SideBarDocuments() {
     const location = useLocation();
 
-    //DECLARAR LOS ESTADOS PARA CADA SUBMENU
-    const [subMenuFinantial, setSubMenuFinantial] = useState(() => getItemFromLocalStorage('finantial', false));
-
-    //DECLARAR LAS REFERENCIAS PARA CADA SUBMENU
-    const subMenuFinantialRef = useRef<HTMLDivElement>(null);
-
-    //MENU DE FINANCIERO
-    const handleSubMenuFinantial = () => {
-        setSubMenuFinantial((prev: any) => {
-            setItemInLocalStorage('finantial', !prev);
-            return !prev;
-        });
+    // Leer el estado inicial de los submenús desde localStorage
+    const getInitialState = (key: string, defaultValue: boolean) => {
+        const storedValue = localStorage.getItem(key);
+        return storedValue !== null ? JSON.parse(storedValue) : defaultValue;
     };
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                subMenuFinantialRef.current && !subMenuFinantialRef.current.contains(event.target as Node)
-            ) {
-                setSubMenuFinantial(false);
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
+    const [isPoliciesSubMenuOpen, setPoliciesSubMenuOpen] = useState(() => getInitialState('policiesSubMenuOpen', false));
+    const [isFormsSubMenuOpen, setFormsSubMenuOpen] = useState(() => getInitialState('formsSubMenuOpen', false));
+    const [isProceduresSubMenuOpen, setProceduresSubMenuOpen] = useState(() => getInitialState('proceduresSubMenuOpen', false));
+
+    // SUBMENU DE PLITICAS
+    const togglePoliciesSubMenuOpen = () => {
+        const newState = !isPoliciesSubMenuOpen;
+        setPoliciesSubMenuOpen(newState);
+        localStorage.setItem('policiesSubMenuOpen', JSON.stringify(newState));
+    };
+
+    // SUBMENU DE FORMATOS
+    const toggleFormsSubMenuOpen = () => {
+        const newState = !isFormsSubMenuOpen;
+        setFormsSubMenuOpen(newState);
+        localStorage.setItem('formsSubMenuOpen', JSON.stringify(newState));
+    };
+
+    // SUBMENU DE PROCEDIMIENTOS
+    const toggleProceduresSubMenuOpen = () => {
+        const newState = !isProceduresSubMenuOpen;
+        setProceduresSubMenuOpen(newState);
+        localStorage.setItem('proceduresSubMenuOpen', JSON.stringify(newState));
+    };
+
+    // RUTAS CON PARAMS
+    const matchPolicies = useMatch('/documents/finantial/finantial/policies');
 
     return (
         <div className={`${styles.container} overflow-y-auto position-sticky border-top-0`}>
             <div className={`${styles.container__Component} p-1`}>
                 <div className={`${styles.container__Section} mb-2 d-flex align-items-center justify-content-end`}>
-                    {location.pathname !== "/documents" && (
+                    {/* {location.pathname !== "/documents/finantial/finantial" && (
                         <div>
                             <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
-                            <Link to="/documents" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Documentos</Link>
+                            <Link to="/documents/finantial/finantial" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de Documentos</Link>
                         </div>
                     )}
+                    {location.pathname === "/documents/finantial/finantial" && (
+                        <div>
+                            <IoIosArrowRoundBack className={`${styles.icon__Back} `}/>
+                            <Link to="/documents" className={`${styles.button__Back} text-decoration-none`}>Ir a Inicio de SIG</Link>
+                        </div>
+                    )} */}
                 </div>
 
-                <div ref={subMenuFinantialRef} className={`${styles.container__Section} ${location.pathname === '/documents/finantial' ? styles.active : ''} mb-2 d-flex align-items-center`}>
-                    <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
-                        <MdNavigateNext className={styles.icon__Deployment} onClick={handleSubMenuFinantial}/>
-                    </div>
-                    <Link to="/documents/finantial" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
-                        <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
-                            <IoHome className={`${styles.icon__Section} `}/>
-                        </div>
-                        <div className={`${styles.link__SideBar} p-1 text-decoration-none`}>Financiero</div>
-                    </Link>
-                    <div className={`collapse ${subMenuFinantial ? 'show' : ''}`}>
-                        <div className={`${styles.menu} d-flex flex-column align-items-start w-100`}>
-                            <Link to='/inventories/consult-assets' className={`${styles.link__SideBar} text-decoration-none ${(location.pathname === '/inventories/consult-assets' || location.pathname === '/inventories/create-assets') ? styles.active : ''} `}>Top Drive Group SAS</Link>
-                            <Link to='/inventories/consult-merchandises' className={`${styles.link__SideBar} text-decoration-none ${(location.pathname === '/inventories/consult-merchandises' || location.pathname === '/inventories/create-merchandises') ? styles.active : ''} `}>World Electric Telecom Solutions SAS</Link>
-                            <Link to='/inventories/consult-products' className={`${styles.link__SideBar} text-decoration-none ${(location.pathname === '/inventories/consult-products'|| location.pathname === '/inventories/create-products' ) ? styles.active : ''} `}>West Cargo Logistics SAS</Link>
-                            <Link to='/inventories/consult-raw-materals' className={`${styles.link__SideBar} text-decoration-none ${(location.pathname === '/inventories/consult-raw-materals' || location.pathname === '/inventories/create-raw-materals') ? styles.active : ''}`}>Kowa Coworking Warehouse</Link>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-                <div className={`${styles.container__Section} ${location.pathname === '/documents/marketing' ? styles.active : ''} mb-2 d-flex align-items-center`}>
+                <div onClick={togglePoliciesSubMenuOpen}
+                    className={`${styles.container__Section}
+                    ${(location.pathname === '/documents/finantial/finantial/top-drive-group' ||
+                    location.pathname === '/documents/finantial/finantial/world-electrictTelecom-solutions' ||
+                    location.pathname === '/documents/finantial/finantial/west-cargo-logistics' ||
+                    location.pathname === '/documents/finantial/finantial/kowa-coworking-warehouse' ||
+                    matchPolicies) ? styles.active : ''}  mb-2 d-flex align-items-center`}
+                >
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
-                    <Link to="/documents/marketing" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                    <div className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__SideBar} p-1 text-decoration-none`}>Marketing</div>
-                    </Link>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Financiero {isPoliciesSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                    </div>
                 </div>
+                {isPoliciesSubMenuOpen && (
+                    <div className={styles.sub__Menu}>
+                        <Link
+                            to='/documents/finantial/top-drive-group'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/documents/finantial/top-drive-group' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            Top Drive Group SAS
+                        </Link>
+                        <Link
+                            to='/documents/finantial/world-electrictTelecom-solutions'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/documents/finantial/world-electrictTelecom-solutions' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            World Electric Telecom Solutions SAS
+                        </Link>
+                        <Link
+                            to='/documents/finantial/west-cargo-logistics'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/documents/finantial/west-cargo-logistics' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            West Cargo Logistics SAS
+                        </Link>
+                        <Link
+                            to='/documents/finantial/kowa-coworking-warehouse'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/documents/finantial/kowa-coworking-warehouse' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            Kowa Coworking Warehouse
+                        </Link>
+                    </div>
+                )}
 
-                <div className={`${styles.container__Section} ${location.pathname === '/documents/administrative' ? styles.active : ''} mb-2 d-flex align-items-center`}>
+                <div onClick={toggleFormsSubMenuOpen}
+                    className={`${styles.container__Section}
+                    ${(location.pathname === '/documents/finantial/marketing') ? styles.active : ''} 
+                    mb-2 d-flex align-items-center`}
+                >
                     <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                         <MdNavigateNext className={styles.icon__Deployment}/>
                     </div>
-                    <Link to="/documents/administrative" className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                    <div className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
                         <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
                             <IoHome className={`${styles.icon__Section} `}/>
                         </div>
-                        <div className={`${styles.link__SideBar} p-1 text-decoration-none`}>Administrativo</div>
-                    </Link>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Marketing {isFormsSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                    </div>
                 </div>
+                {isFormsSubMenuOpen && (
+                    <div className={styles.sub__Menu}>
+                        <Link
+                            to='/documents/finantial/marketing'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/documents/finantial/marketing' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            Formularios de creación
+                        </Link>
+                    </div>
+                )}
+
+                <div onClick={toggleProceduresSubMenuOpen}
+                    className={`${styles.container__Section}
+                    ${(location.pathname === '/documents/finantial/administrative') ? styles.active : ''} 
+                    mb-2 d-flex align-items-center`}
+                >
+                    <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
+                        <MdNavigateNext className={styles.icon__Deployment}/>
+                    </div>
+                    <div className={`${styles.section} d-flex align-items-center justify-content-start text-decoration-none`}>
+                        <div className={`${styles.container__Icon} d-flex align-items-center justify-content-center`}>
+                            <IoHome className={`${styles.icon__Section} `}/>
+                        </div>
+                        <div className={`${styles.link__Side_Bar} p-1 d-flex align-items-center justify-content-between`}>Administrativo {isProceduresSubMenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}  </div>
+                    </div>
+                </div>
+                {isProceduresSubMenuOpen && (
+                    <div className={styles.sub__Menu}>
+                        <Link
+                            to='/documents/finantial/administrative'
+                            className={`${styles.link__Sub_Menu} ${location.pathname === '/documents/finantial/administrative' ? styles.active__Sub_Menu : ''} text-decoration-none`}
+                        >
+                            Formularios de creación
+                        </Link>
+                    </div>
+                )}
             </div>
         </div>
     );
