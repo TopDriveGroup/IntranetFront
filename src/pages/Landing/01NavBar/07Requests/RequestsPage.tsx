@@ -6,9 +6,9 @@ import styles from './styles.module.css';
 function RequestsPage() {
 
     return (
-        <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between overflow-hidden overflow-y-auto`}>
+        <div>
             <NavBar />
-            <div className='d-flex'>
+            <div className={`${styles.container} d-flex`}>
                 <SideBarRequests />
                 <div className={`${styles.component} p-3`}>
                     <h2 className={`${styles.title} `}>Solicitudes</h2>

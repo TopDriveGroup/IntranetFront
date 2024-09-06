@@ -8,7 +8,7 @@ function DocumentsPage() {
     return (
         <div>
             <NavBar />
-            <div className={`${styles.container} p-2 d-flex`}>
+            <div className={`${styles.container} d-flex`}>
                 <SideBarDocuments />
                 <div className={`${styles.component} p-3`}>
                     <h2 className={`${styles.title} `}>Documentos</h2>

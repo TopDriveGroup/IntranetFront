@@ -6,9 +6,9 @@ import styles from './styles.module.css';
 function AssetManagementPage() {
 
     return (
-        <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between overflow-hidden overflow-y-auto`}>
+        <div>
             <NavBar />
-            <div className='d-flex'>
+            <div className={`${styles.container} d-flex`}>
                 <SideBarAssetManagement />
                 <div className={`${styles.component} p-3`}>
                     <h2 className={`${styles.title} `}>Gestión de Activos</h2>
