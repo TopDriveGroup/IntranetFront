@@ -56,6 +56,11 @@ import AboutUsPage from './pages/Landing/01NavBar/02AboutUs/AboutUsPage';
 // DOCUMENTOS
 import DocumentsPage from './pages/Landing/01NavBar/03Documents/DocumentsPage';
 import FinantialDocumentsPage from './pages/Landing/01NavBar/03Documents/01FinantialDocumentsPage/FinantialDocumentsPage';
+import FinantialDocumentsTopDriveGroupPage from './pages/Landing/01NavBar/03Documents/01FinantialDocumentsPage/01FinantialDocumentsTopDriveGroup/FinantialDocumentsTopDriveGroupPage';
+import FinantialDocumentsWetsPage from './pages/Landing/01NavBar/03Documents/01FinantialDocumentsPage/02FinantialDocumentsWets/FinantialDocumentsWetsPage';
+import FinantialDocumentsWestPage from './pages/Landing/01NavBar/03Documents/01FinantialDocumentsPage/03FinantialDocumentsWest/FinantialDocumentsWestPage';
+import FinantialDocumentsKowaPage from './pages/Landing/01NavBar/03Documents/01FinantialDocumentsPage/04FinantialDocumentsKowa/FinantialDocumentsKowaPage';
+
 import MarketingDocumentsPage from './pages/Landing/01NavBar/03Documents/02MarketingDocuments/MarketingDocumentsPage';
 import AdministrativeDocumentsPage from './pages/Landing/01NavBar/03Documents/03AdministrativeDocuments/AdministrativeDocumentsPage';
 // UNIVERSITY
@@ -145,6 +150,11 @@ function App() {
                     {/* ----------DOCUMENTOS---------- */}
                     <Route path='/documents' element={<DocumentsPage />} />
                     <Route path='/documents/finantial' element={<FinantialDocumentsPage />} />
+                    <Route path='/documents/finantial/top-drive-group' element={<FinantialDocumentsTopDriveGroupPage />} />
+                    <Route path='/documents/finantial/world-electrict-telecom-solutions' element={<FinantialDocumentsWetsPage />} />
+                    <Route path='/documents/finantial/west-cargo-logistics' element={<FinantialDocumentsWestPage />} />
+                    <Route path='/documents/finantial/kowa-coworking-warehouse' element={<FinantialDocumentsKowaPage />} />
+
                     <Route path='/documents/marketing' element={<MarketingDocumentsPage />} />
                     <Route path='/documents/administrative' element={<AdministrativeDocumentsPage />} />
 

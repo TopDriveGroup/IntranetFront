@@ -4,6 +4,7 @@ import Footer from '../../../../../components/LandingPage/Footer/Footer';
 import styles from './styles.module.css';
 
 function FinantialDocumentsPage() {
+    
     return (
         <div className={`${styles.container} d-flex flex-column align-items-center justify-content-between`}>
             <NavBar />
