@@ -38,9 +38,11 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className={`${styles.container__Polity} `}>
+                <div className={`${styles.container__Polity} d-flex flex-column align-items-end justify-content-start`}>
                     <p className="m-0">{t('footer.terms__Conditions')}</p>
-                    <p className="m-0">{t('footer.privacy__Policy')}</p>
+                    <a href="https://drive.google.com/file/d/1WeMBgLj1SIb21gcVqOT2Ft3gOKLCK_R3/view" target="blank" rel="noopener noreferrer" className={`${styles.link__Privacy_Policy} d-flex align-items-center justify-content-center text-decoration-none`}>
+                        {t('footer.privacy__Policy')}
+                    </a>
                     <p className="m-0">© Copyright 2024 Top Drive Group</p>
                     <p className="m-0">{t('footer.all__Rights_Reserved')}</p>
                 </div>

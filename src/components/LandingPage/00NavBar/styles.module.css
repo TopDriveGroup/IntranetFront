@@ -49,46 +49,21 @@
 .language__Button:hover {
     color: #e4002b;
 }
-.language__Selected {
-    font-weight: 600;
-    color: #e4002b;
-}
-.container__Phone_Lines {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+.container__Logout {
     height: 40px;
 }
-.ecommerce {
-    height: 40px;
+.container__Logout:hover {
+    cursor: pointer;
 }
-.register {
-    font-weight: 400;
-    color: #495057;
-    height: 40px;
-    min-width: 80px;
-}
-.register:hover {
-    color: #e4002b;
-}
-.login {
+.logout {
     font-weight: 600;
     height: 40px;
     color: #e4002b;
 }
-.icon__User {
+.icon__Logout {
     font-size: 25px;
     color: #e4002b;
     margin: 0 -5px 0 0;
-}
-.title__Ecommerce {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    height: 40px;
-    color: #e4002b;
-    font-weight: 700;
-}
-.title__Ecommerce:hover {
-    color: white;
-    font-weight: 700;
-    background: #e4002b;
 }
 
 /* NAVBAR */

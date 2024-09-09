@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from '../../redux/store';
 import { loginUser } from '../../redux/CollaboratorSlice/actions';
 //ELEMENTOS DEL COMPONENTE
-import { IUserLogin } from '../../types/userLogin.types';
+import { ICollaboratorLogin } from '../../types/collaboratorLogin.types';
 import LogoTopDriveGroup from '../../assets/TopDriveGroup/LogoTopDrive.svg';
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 import { PiWarningCircle } from 'react-icons/pi';
@@ -32,14 +32,14 @@ function ModalLogin({onLoginComplete}: ModalLoginProps) {
     const colaboratorErrors = useSelector((state: RootState) => state.collaborator.colaboratorErrors);
     const isAuthenticated = useSelector((state: RootState) => state.collaborator.isAuthenticated);
 
-    const { register, formState: { errors }, handleSubmit } = useForm<IUserLogin>();
+    const { register, formState: { errors }, handleSubmit } = useForm<ICollaboratorLogin>();
 
     const [showPassword, setShowPassword] = useState(false);
     const toggleShowPassword = () => {
         setShowPassword((prevState) => !prevState);
     };
 
-    const onSubmit = async (loginData: IUserLogin) => {
+    const onSubmit = async (loginData: ICollaboratorLogin) => {
         try {
             dispatch(loginUser(loginData));
             setTimeout(() => {
@@ -85,11 +85,11 @@ function ModalLogin({onLoginComplete}: ModalLoginProps) {
                             <div className='mb-2 d-flex align-items-center justify-content-center position-relative'>
                                 <input
                                     type="email"
-                                    {...register('email', { required: true })}
+                                    {...register('corporateEmail', { required: true })}
                                     className={`${styles.input} p-2 mb-3 border rounded`}
                                     placeholder='Email del usuario'
                                 />
-                                {errors.email && (
+                                {errors.corporateEmail && (
                                     <p className={`${styles.text__Danger} text-danger position-absolute`}>El email del usuario es requerido</p>
                                 )}
                             </div>

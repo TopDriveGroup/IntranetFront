@@ -4,10 +4,11 @@ import './styles.css';
 import WhatsApp from './components/WhatsApp/WhatsApp';
 import Scroll from './components/Scroll/Scroll';
 // LANDINGPAGE
-import LandingPage from './pages/Landing/LandingPage';
-import LoginTecnologyPage from './pages/Landing/01NavBar/00PreNavBar/01LoginTecnology/LoginTecnologyPage';
-import LoginAdminPage from './pages/Landing/01NavBar/00PreNavBar/02LoginAdmin/LoginAdminPage';
 import LoginPage from './pages/Landing/01NavBar/00PreNavBar/03LoginColaborators/LoginPage';
+
+// PROTECTEDROUTES
+import ProtectedRoute from './ProtectedRoute';
+import LandingPage from './pages/Landing/LandingPage';
 // NAVBAR
 import SIGPage from './pages/Landing/01NavBar/01SIG/SIGPage';
 // OPERACIONES
@@ -95,93 +96,92 @@ function App() {
                 <Scroll />
                 <Routes>
                     {/* ----------LANDINGPAGE---------- */}
-                    <Route path='/' element={<LandingPage />} />
-                    <Route path='/tecnology' element={<LoginTecnologyPage />} />
-                    <Route path='/admin' element={<LoginAdminPage />} />
                     <Route path='/login' element={<LoginPage />} />
+                    {/* PROTECTED ROUTES */}
+                    <Route element={<ProtectedRoute />}>
+                        <Route path='/' element={<LandingPage />} />
+                        <Route path='/sig' element={<SIGPage />} />
+                        {/* ----------SIG OPERACIONES---------- */}
+                        <Route path='/sig/operations' element={<OperationsPage />} />
+                        <Route path='/sig/operations/policies' element={<PoliciesPage />} />
+                        <Route path='/sig/operations/forms' element={<FormsPage />} />
+                        <Route path='/sig/operations/procedures' element={<ProceduresPage />} />
+                        <Route path='/sig/operations/registers' element={<RegistersPage />} />
+                        <Route path='/sig/operations/indicators' element={<IndicatorsPage />} />
+                        {/* ----------SIG TECNOLOGIA---------- */}
+                        <Route path='/sig/technology' element={<TecnologyPage />} />
+                        <Route path='/sig/technology/policies' element={<TecnologyPoliciesPage />} />
+                        <Route path='/sig/technology/forms' element={<TecnologyFormsPage />} />
+                        <Route path='/sig/technology/procedures' element={<TecnologyProceduresPage />} />
+                        <Route path='/sig/technology/registers' element={<TecnologyRegistersPage />} />
+                        <Route path='/sig/technology/indicators' element={<TecnologyIndicatorsPage />} />
+                        {/* ----------SIG CALIDAD Y ADMINISTRACION---------- */}
+                        <Route path='/sig/quality-and-administrative' element={<QualityAdministrativePage />} />
+                        <Route path='/sig/quality-and-administrative/policies' element={<QualityAdministrativePoliciesPage />} />
+                        <Route path='/sig/quality-and-administrative/forms' element={<QualityAdministrativeFormsPage />} />
+                        <Route path='/sig/quality-and-administrative/procedures' element={<QualityAdministrativeProceduresPage />} />
+                        <Route path='/sig/quality-and-administrative/registers' element={<QualityAdministrativeRegistersPage />} />
+                        <Route path='/sig/quality-and-administrative/indicators' element={<QualityAdministrativeIndicatorsPage />} />
+                        {/* ----------SIG FINANCIERO---------- */}
+                        <Route path='/sig/finantial' element={<FinantialPage />} />
+                        <Route path='/sig/finantial/policies' element={<FinantialPoliciesPage />} />
+                        <Route path='/sig/finantial/forms' element={<FinantialFormsPage />} />
+                        <Route path='/sig/finantial/procedures' element={<FinantialProceduresPage />} />
+                        <Route path='/sig/finantial/registers' element={<FinantialRegistersPage />} />
+                        <Route path='/sig/finantial/indicators' element={<FinantialIndicatorsPage />} />
+                        {/* ----------SIG MARKETING---------- */}
+                        <Route path='/sig/marketing' element={<MarketingPage />} />
+                        <Route path='/sig/marketing/policies' element={<MarketingPoliciesPage />} />
+                        <Route path='/sig/marketing/forms' element={<MarketingFormsPage />} />
+                        <Route path='/sig/marketing/procedures' element={<MarketingProceduresPage />} />
+                        <Route path='/sig/marketing/registers' element={<MarketingRegistersPage />} />
+                        <Route path='/sig/marketing/indicators' element={<MarketingIndicatorsPage />} />
+                        {/* ----------SIG PROYECTOS Y SERVICIOS---------- */}
+                        <Route path='/sig/projects-and-solutions' element={<ProjectsSolutionsPage />} />
+                        <Route path='/sig/projects-and-solutions/policies' element={<ProjectsSolutionsPoliciesPage />} />
+                        <Route path='/sig/projects-and-solutions/forms' element={<ProjectsSolutionsFormsPage />} />
+                        <Route path='/sig/projects-and-solutions/procedures' element={<ProjectsSolutionsProceduresPage />} />
+                        <Route path='/sig/projects-and-solutions/registers' element={<ProjectsSolutionsRegistersPage />} />
+                        <Route path='/sig/projects-and-solutions/indicators' element={<ProjectsSolutionsIndicatorsPage />} />
 
-                    <Route path='/sig' element={<SIGPage />} />
-                    {/* ----------SIG OPERACIONES---------- */}
-                    <Route path='/sig/operations' element={<OperationsPage />} />
-                    <Route path='/sig/operations/policies' element={<PoliciesPage />} />
-                    <Route path='/sig/operations/forms' element={<FormsPage />} />
-                    <Route path='/sig/operations/procedures' element={<ProceduresPage />} />
-                    <Route path='/sig/operations/registers' element={<RegistersPage />} />
-                    <Route path='/sig/operations/indicators' element={<IndicatorsPage />} />
-                    {/* ----------SIG TECNOLOGIA---------- */}
-                    <Route path='/sig/technology' element={<TecnologyPage />} />
-                    <Route path='/sig/technology/policies' element={<TecnologyPoliciesPage />} />
-                    <Route path='/sig/technology/forms' element={<TecnologyFormsPage />} />
-                    <Route path='/sig/technology/procedures' element={<TecnologyProceduresPage />} />
-                    <Route path='/sig/technology/registers' element={<TecnologyRegistersPage />} />
-                    <Route path='/sig/technology/indicators' element={<TecnologyIndicatorsPage />} />
-                    {/* ----------SIG CALIDAD Y ADMINISTRACION---------- */}
-                    <Route path='/sig/quality-and-administrative' element={<QualityAdministrativePage />} />
-                    <Route path='/sig/quality-and-administrative/policies' element={<QualityAdministrativePoliciesPage />} />
-                    <Route path='/sig/quality-and-administrative/forms' element={<QualityAdministrativeFormsPage />} />
-                    <Route path='/sig/quality-and-administrative/procedures' element={<QualityAdministrativeProceduresPage />} />
-                    <Route path='/sig/quality-and-administrative/registers' element={<QualityAdministrativeRegistersPage />} />
-                    <Route path='/sig/quality-and-administrative/indicators' element={<QualityAdministrativeIndicatorsPage />} />
-                    {/* ----------SIG FINANCIERO---------- */}
-                    <Route path='/sig/finantial' element={<FinantialPage />} />
-                    <Route path='/sig/finantial/policies' element={<FinantialPoliciesPage />} />
-                    <Route path='/sig/finantial/forms' element={<FinantialFormsPage />} />
-                    <Route path='/sig/finantial/procedures' element={<FinantialProceduresPage />} />
-                    <Route path='/sig/finantial/registers' element={<FinantialRegistersPage />} />
-                    <Route path='/sig/finantial/indicators' element={<FinantialIndicatorsPage />} />
-                    {/* ----------SIG MARKETING---------- */}
-                    <Route path='/sig/marketing' element={<MarketingPage />} />
-                    <Route path='/sig/marketing/policies' element={<MarketingPoliciesPage />} />
-                    <Route path='/sig/marketing/forms' element={<MarketingFormsPage />} />
-                    <Route path='/sig/marketing/procedures' element={<MarketingProceduresPage />} />
-                    <Route path='/sig/marketing/registers' element={<MarketingRegistersPage />} />
-                    <Route path='/sig/marketing/indicators' element={<MarketingIndicatorsPage />} />
-                    {/* ----------SIG PROYECTOS Y SERVICIOS---------- */}
-                    <Route path='/sig/projects-and-solutions' element={<ProjectsSolutionsPage />} />
-                    <Route path='/sig/projects-and-solutions/policies' element={<ProjectsSolutionsPoliciesPage />} />
-                    <Route path='/sig/projects-and-solutions/forms' element={<ProjectsSolutionsFormsPage />} />
-                    <Route path='/sig/projects-and-solutions/procedures' element={<ProjectsSolutionsProceduresPage />} />
-                    <Route path='/sig/projects-and-solutions/registers' element={<ProjectsSolutionsRegistersPage />} />
-                    <Route path='/sig/projects-and-solutions/indicators' element={<ProjectsSolutionsIndicatorsPage />} />
+                        {/* ----------NOSOTROS---------- */}
+                        <Route path='/about-us' element={<AboutUsPage />} />
 
-                    {/* ----------NOSOTROS---------- */}
-                    <Route path='/about-us' element={<AboutUsPage />} />
+                        {/* ----------DOCUMENTOS---------- */}
+                        <Route path='/documents' element={<DocumentsPage />} />
+                        <Route path='/documents/finantial' element={<FinantialDocumentsPage />} />
+                        <Route path='/documents/finantial/top-drive-group' element={<FinantialDocumentsTopDriveGroupPage />} />
+                        <Route path='/documents/finantial/world-electrict-telecom-solutions' element={<FinantialDocumentsWetsPage />} />
+                        <Route path='/documents/finantial/west-cargo-logistics' element={<FinantialDocumentsWestPage />} />
+                        <Route path='/documents/finantial/kowa-coworking-warehouse' element={<FinantialDocumentsKowaPage />} />
 
-                    {/* ----------DOCUMENTOS---------- */}
-                    <Route path='/documents' element={<DocumentsPage />} />
-                    <Route path='/documents/finantial' element={<FinantialDocumentsPage />} />
-                    <Route path='/documents/finantial/top-drive-group' element={<FinantialDocumentsTopDriveGroupPage />} />
-                    <Route path='/documents/finantial/world-electrict-telecom-solutions' element={<FinantialDocumentsWetsPage />} />
-                    <Route path='/documents/finantial/west-cargo-logistics' element={<FinantialDocumentsWestPage />} />
-                    <Route path='/documents/finantial/kowa-coworking-warehouse' element={<FinantialDocumentsKowaPage />} />
+                        <Route path='/documents/marketing' element={<MarketingDocumentsPage />} />
+                        <Route path='/documents/administrative' element={<AdministrativeDocumentsPage />} />
 
-                    <Route path='/documents/marketing' element={<MarketingDocumentsPage />} />
-                    <Route path='/documents/administrative' element={<AdministrativeDocumentsPage />} />
+                        {/* ----------TD UNIVERSITY---------- */}
+                        <Route path='/top-drive-univertity' element={<TDUnivertityPage />} />
+                        <Route path='/top-drive-univertity/corporate-induction-for-new-personnel' element={<CorporateInductionNewPersonnelPage />} />
+                        <Route path='/top-drive-univertity/induction-visit-plant' element={<InductionVisitPlantPage />} />
+                        <Route path='/top-drive-univertity/training' element={<TrainingPage />} />
 
-                    {/* ----------TD UNIVERSITY---------- */}
-                    <Route path='/top-drive-univertity' element={<TDUnivertityPage />} />
-                    <Route path='/top-drive-univertity/corporate-induction-for-new-personnel' element={<CorporateInductionNewPersonnelPage />} />
-                    <Route path='/top-drive-univertity/induction-visit-plant' element={<InductionVisitPlantPage />} />
-                    <Route path='/top-drive-univertity/training' element={<TrainingPage />} />
+                        {/* ----------REPORTE TECNICO---------- */}
+                        <Route path='/technical-report' element={<TechnicalReportPage />} />
+                        <Route path='/technical-report/technical-data-sheets' element={<TechnicalDataSheets />} />
+                        <Route path='/technical-report/conformity-certificates' element={<ConformityCertificatesPage />} />
+                        <Route path='/technical-report/kits&-packages' element={<KitsPackagesPage />} />
+                        <Route path='/technical-report/support-documents' element={<SupportDocumentsPage />} />
 
-                    {/* ----------REPORTE TECNICO---------- */}
-                    <Route path='/technical-report' element={<TechnicalReportPage />} />
-                    <Route path='/technical-report/technical-data-sheets' element={<TechnicalDataSheets />} />
-                    <Route path='/technical-report/conformity-certificates' element={<ConformityCertificatesPage />} />
-                    <Route path='/technical-report/kits&-packages' element={<KitsPackagesPage />} />
-                    <Route path='/technical-report/support-documents' element={<SupportDocumentsPage />} />
+                        {/* ----------GESTION DE ACTIVOS---------- */}
+                        <Route path='/asset-management' element={<AssetManagementPage />} />
+                        <Route path='/asset-management/my-assets' element={<MyAssetsPage />} />
+                        <Route path='/asset-management/asset-request' element={<AssetRequestPage />} />
+                        <Route path='/asset-management/asset-summary' element={<AssetSummaryPage />} />
 
-                    {/* ----------GESTION DE ACTIVOS---------- */}
-                    <Route path='/asset-management' element={<AssetManagementPage />} />
-                    <Route path='/asset-management/my-assets' element={<MyAssetsPage />} />
-                    <Route path='/asset-management/asset-request' element={<AssetRequestPage />} />
-                    <Route path='/asset-management/asset-summary' element={<AssetSummaryPage />} />
-
-                    {/* ----------SOLICITUDES---------- */}
-                    <Route path='/requests' element={<RequestsPage />} />
-                    <Route path='/requests/tech' element={<TechPage />} />
-                    <Route path='/requests/quality' element={<QualityPage />} />
-                    
+                        {/* ----------SOLICITUDES---------- */}
+                        <Route path='/requests' element={<RequestsPage />} />
+                        <Route path='/requests/tech' element={<TechPage />} />
+                        <Route path='/requests/quality' element={<QualityPage />} />
+                    </Route>
                     {/* ERROR 404 */}
                     <Route path="*" element={<Error404 />} />
                 </Routes>
