@@ -1,12 +1,18 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link, useMatch } from 'react-router-dom';
+//REDUX
+import { useDispatch } from 'react-redux';
+import type { AppDispatch } from '../../../redux/store';
+import { collaboratorLogout } from '../../../redux/CollaboratorSlice/actions';
 //ELEMENTOS DEL COMPONENTE
 import LogoTopDrive from '../../../assets/TopDriveGroup/LogoTopDrive.svg';
 import { BiWorld } from "react-icons/bi";
-import { AiOutlineUser } from "react-icons/ai";
+import { MdOutlineLogout } from "react-icons/md";
 import styles from './styles.module.css';
 
 function NavBar() {
+    const dispatch: AppDispatch = useDispatch();
+
     // LENGUAJE
     const menuRef = useRef<HTMLDivElement>(null);
     const languageMenuRef = useRef<HTMLDivElement>(null);
@@ -36,6 +42,15 @@ function NavBar() {
     const matchAssetManagement = useMatch('/asset-management/*');
     const matchRequests = useMatch('/requests/*');
 
+    const logout = async () => {
+        try {
+            dispatch(collaboratorLogout());
+        } catch (error) {
+            console.log('Error: ', error)
+            throw new Error('Error al hacer el cierre de sesión');
+        }
+    };
+
     return (
         <div className={`${styles.container} position-fixed top-0`}>
             <div className={`${styles.container__Pre_NavBar} m-auto`}>
@@ -57,17 +72,11 @@ function NavBar() {
                         </div>
                     </div>
 
-                    <div className={`${styles.ecommerce} d-flex align-items-center justify-content-center`}>
-                        <Link to="/tecnology" className={`${styles.register} px-2 d-flex align-items-center justify-content-center text-center text-decoration-none`} >
-                            Tecnología
-                        </Link>
-                        <Link to="/admin" className={`${styles.register} px-2 d-flex align-items-center justify-content-center text-center text-decoration-none`} >
-                            Administración
-                        </Link>
-                        <Link to="/login" className={`${styles.login} px-2 d-flex align-items-center justify-content-end text-center text-decoration-none gap-1`} >
-                            <AiOutlineUser className={styles.icon__User} />
-                            Login
-                        </Link>
+                    <div className={`${styles.container__Logout} d-flex align-items-center justify-content-center`}>
+                        <div className={`${styles.logout} px-2 d-flex align-items-center justify-content-end text-center text-decoration-none gap-1`} onClick={logout} >
+                            Salir
+                            <MdOutlineLogout className={styles.icon__Logout} />
+                        </div>
                     </div>
                 </div>
             </div>

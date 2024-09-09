@@ -3,21 +3,16 @@ import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import jsCookie from 'js-cookie';
-import { jwtDecode } from 'jwt-decode';
 //REDUX
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from '../../../../../redux/store';
-import { postCollaboratorLogin } from '../../../../../redux/CollaboratorSlice/actions';
+import { loginUser } from '../../../../../redux/CollaboratorSlice/actions';
 //ELEMENTOS DEL COMPONENTE
-import { ILogin } from '../../../../../types/login.types';
+import { ICollaboratorLogin } from '../../../../../types/collaboratorLogin.types';
 import LogoTopDriveGroup from '../../../../../assets/TopDriveGroup/LogoTopDrive.svg';
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 import { PiWarningCircle } from 'react-icons/pi';
 import styles from './styles.module.css';
-
-interface DecodedToken {
-    typeRole: string;
-}
 
 function LoginPage() {
     const token = jsCookie.get("token");
@@ -28,16 +23,16 @@ function LoginPage() {
     const colaboratorErrors = useSelector((state: RootState) => state.collaborator.colaboratorErrors);
     const isAuthenticated = useSelector((state: RootState) => state.collaborator.isAuthenticated);
 
-    const { register, formState: { errors }, handleSubmit } = useForm<ILogin>();
+    const { register, formState: { errors }, handleSubmit } = useForm<ICollaboratorLogin>();
 
     const [showPassword, setShowPassword] = useState(false);
     const toggleShowPassword = () => {
         setShowPassword((prevState) => !prevState);
     };
 
-    const onSubmit = async (loginData: ILogin) => {
+    const onSubmit = async (loginData: ICollaboratorLogin) => {
         try {
-            dispatch(postCollaboratorLogin(loginData));
+            dispatch(loginUser(loginData));
         } catch {
             throw new Error('Error al iniciar sesión');
         }
@@ -45,16 +40,7 @@ function LoginPage() {
 
     useEffect(() => {
         if (isAuthenticated) {
-            let decodedToken: DecodedToken | null = null;
-            if (token) {
-                // Se decodifica el token para redirigir al usuario a su panel respectivo
-                decodedToken = jwtDecode<DecodedToken>(token);
-                if(decodedToken.typeRole === 'Superadmin') {
-                    navigate("/panel-collaborator/profile");
-                } else {
-                    navigate("/panel-top-drive-group/configuration");
-                }
-            }
+            if (token) navigate("/");
         }
     }, [ isAuthenticated ]);
 
@@ -77,11 +63,11 @@ function LoginPage() {
                             <div className='mb-2 d-flex align-items-center justify-content-center position-relative'>
                                 <input
                                     type="email"
-                                    {...register('email', { required: true })}
+                                    {...register('corporateEmail', { required: true })}
                                     className={`${styles.input} p-2 mb-3 border rounded`}
                                     placeholder='Email del usuario'
                                 />
-                                {errors.email && (
+                                {errors.corporateEmail && (
                                     <p className={`${styles.text__Danger} text-danger position-absolute`}>El email del usuario es requerido</p>
                                 )}
                             </div>

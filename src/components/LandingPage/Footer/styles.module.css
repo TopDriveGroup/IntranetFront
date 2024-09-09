@@ -39,10 +39,12 @@
     font-size: 14px;
     height: 100%;
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
+}
+.link__Privacy_Policy {
+    color: #e9ecef;
+}
+.link__Privacy_Policy:hover {
+    color: #e4002b;
 }
 
 
