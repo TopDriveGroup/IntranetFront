@@ -48,9 +48,7 @@ function LoginPage() {
         <div className="d-flex align-items-center justify-content-center">
             <div className={`${styles.container} d-flex align-items-center justify-content-center vh-100`}>
                 <div className={`${styles.container__Component} d-flex flex-column align-items-center justify-content-center`}>
-                    <Link to="/">
-                        <img src={LogoTopDriveGroup} alt="Top Drive Group" className={`${styles.logo} mb-4`} loading="lazy" />
-                    </Link>
+                    <img src={LogoTopDriveGroup} alt="Top Drive Group" className={`${styles.logo} mb-4`} loading="lazy" />
                     
                     <div className='position-relative'>
                         {colaboratorErrors && (
@@ -91,14 +89,9 @@ function LoginPage() {
                                 </div>
                             </div>
                             
-                            <div className="d-flex mb-4">
-                                <button 
-                                    className={`${styles.button__Submit} border-0 rounded m-auto text-decoration-none`}
-                                    type='submit'
-                                >
-                                    Login
-                                </button>
-                            </div>  
+                            <button className={`${styles.button__Submit} mb-4 border-0 rounded m-auto text-decoration-none`} type='submit' >
+                                Login
+                            </button>
                         </form>
 
                         <p className='m-0 text-center'>¿No tienes cuenta? <Link to="/register" className={`${styles.link} text-sky-500 text-decoration-none`}>Regístrate acá</Link></p>

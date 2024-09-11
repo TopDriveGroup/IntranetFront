@@ -1,3 +1,4 @@
+import UploadToSharePoint from '../UploadToSharePoint/UploadToSharePoint';
 import styles from './styles.module.css';
 
 function BulletinBoard() {
@@ -6,6 +7,7 @@ function BulletinBoard() {
         <div className={`${styles.container} p-2`}>
             <div className='d-flex flex-column'>
                 <h2>Cartelera</h2>
+                <UploadToSharePoint />
                 <p>- Fechas especiales</p>
                 <p>- Cumpleaños</p>
                 <p>- Noticias de interés</p>

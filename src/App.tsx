@@ -97,8 +97,8 @@ function App() {
                 <Routes>
                     {/* ----------LANDINGPAGE---------- */}
                     <Route path='/login' element={<LoginPage />} />
-                    {/* PROTECTED ROUTES */}
                     <Route element={<ProtectedRoute />}>
+                    {/* PROTECTED ROUTES */}
                         <Route path='/' element={<LandingPage />} />
                         <Route path='/sig' element={<SIGPage />} />
                         {/* ----------SIG OPERACIONES---------- */}
