@@ -1,59 +1,68 @@
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-// import jsCookie from 'js-cookie';
+import { useForm } from 'react-hook-form';
 //REDUX
 import { useDispatch, useSelector } from 'react-redux';
-import { sendDocumentToSharePoint } from '../../../redux/SharePoint/actions';
 import type { RootState, AppDispatch } from '../../../redux/store';
+import { sendDocumentToSharePoint } from '../../../redux/SharePoint/actions';
 //ELEMENTOS DEL COMPONENTE
+import styles from './styles.module.css';
 
 function UploadToSharePoint() {
-    // const token = jsCookie.get('token') || '';
+    // REDUX
     const dispatch: AppDispatch = useDispatch();
-
-    // Estados de Redux
     const sharePointErrors = useSelector((state: RootState) => state.sharePoint.sharePointErrors);
 
-    const [file, setFile] = useState<File | null>(null);
-    const [status, setStatus] = useState<string | null>(null);
-    const [error, setError] = useState<string | null>(null);
+    const { register, handleSubmit } = useForm();
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const handleSubmit = async () => {
-        if (!file) {
-            setError('Por favor, selecciona un archivo');
-            return;
-        }
-        const formData = new FormData();
-        formData.append('file', file);
-
+    const onSubmit = async (data: any) => {
         try {
-            // Aquí llamas a tu action de Redux
-            await dispatch(sendDocumentToSharePoint(formData));
-            // setStatus('Archivo subido con éxito');
-            setError(null);
-        } catch (error: unknown) {
-            setError('Error al subir el archivo');
-            setStatus(null);
-            console.log('Error: ', error);
+            const formData = new FormData();
+            if (data.attachments && data.attachments.length > 0) {
+                const file = data.attachments[0];               // SELECCIONA EL PRIMER ARCHIVO (PARA SUBIR SOLOR UN ARCHIVO POR SERVICIO)
+                formData.append('attachments', file);
+                const fileName = file.name;                     // SETEA EL NOMBRE DEL ARCHIVO
+                formData.append('attachmentName', fileName); 
+                dispatch(sendDocumentToSharePoint(formData));
+                setFormSubmitted(true);
+            }
+        } catch {
+            throw new Error('Error al enviar el archivo');
         }
     };
-
+    
     return (
         <div>
             <h1>Subir Archivo a SharePoint</h1>
 
-            {Array.isArray(sharePointErrors) && sharePointErrors?.map((error, i) => (
-                <div key={i} >{error}</div>
-            ))}
-            <input
-                type="file"
-                onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-            />
-            <button onClick={handleSubmit}>Subir Archivo</button>
-            {status && <p>{status}</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            <form 
+                onSubmit={handleSubmit(onSubmit)}
+                className={`${styles.form} position-relative`} 
+                encType="multipart/form-data"
+            >
+                {formSubmitted && (
+                    <div className={`${styles.alert__Success} text-center position-absolute alert-success`}>
+                        El archivo se ha subido con éxito
+                    </div>
+                )}
+                {Array.isArray(sharePointErrors) && sharePointErrors?.map((error, i) => (
+                    <div key={i}>{error}</div>
+                ))}
+
+                {/* Archivos: Solo un archivo permitido */}
+                <input
+                    {...register('attachments', { required: 'Por favor selecciona un archivo' })}
+                    className={`${styles.input__File} p-2 border`}
+                    type="file"
+                    multiple={false}
+                />
+                <button type='submit' className={`${styles.button__Submit} border-0 rounded text-decoration-none`}>
+                    Subir Archivo
+                </button>
+            </form>
         </div>
     );
-};
+}
 
 export default UploadToSharePoint;

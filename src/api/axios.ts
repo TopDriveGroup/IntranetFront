@@ -7,11 +7,17 @@ const instance = axios.create({
 
 // Interceptor para realizar un seguimiento de las solicitudes salientes
 instance.interceptors.request.use(config => {
-    // Imprime las cookies antes de enviar la solicitud
-    // console.log('Cookies interceptadas y enviadas:', document.cookie);
+    // Verificar si el cuerpo de la solicitud contiene un FormData
+    // if (config.data instanceof FormData) {
+    //     // Imprimir el contenido del FormData
+    //     for (const [key, value] of config.data.entries()) { // Cambia 'let' por 'const'
+    //         console.log(`FormData: ${key}:`, value);
+    //     }
+    // }
     return config;
 }, error => {
     return Promise.reject(error);
 });
+
 
 export default instance;
