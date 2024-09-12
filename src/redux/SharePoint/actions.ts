@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AppDispatch } from '../store';
 import axiosInstance from '../../api/axios';
-import { setDocumentToSharePointErrors, sendDocumentToSharePointStart } from './sharePointSlice';
+import { sendDocumentToSharePointStart, setDocumentToSharePointErrors } from './sharePointSlice';
 
-//ENVIA CORREO ELECTRONICO A UN CLIENTE REGISTRADO EN EL crM
-export const sendDocumentToSharePoint = (sendEmailData: any) => async (dispatch: AppDispatch) => {
-// export const sendDocumentToSharePoint = (token: string, sendEmailData: any) => async (dispatch: AppDispatch) => {
+// Enviar archivo a SharePoint
+export const sendDocumentToSharePoint = (formData: FormData) => async (dispatch: AppDispatch) => {
     try {
         dispatch(sendDocumentToSharePointStart());
-        return await axiosInstance.post(`/share-point`, sendEmailData);
+        return await axiosInstance.post(`/share-point/upload/root`, formData);
     } catch (error: any) {
         if (error.response && error.response.status === 500) {
             dispatch(setDocumentToSharePointErrors(error.response?.data));

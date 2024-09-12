@@ -12,7 +12,26 @@ function QualityPage() {
                 <SideBarRequests />
                 <div className={`${styles.component} p-3`}>
                     <h2 className={`${styles.title} `}>Quality</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ad voluptates culpa cupiditate placeat eos possimus nostrum excepturi, dolore inventore fugiat, asperiores corporis at perferendis sequi eius aliquam ratione facilis?</p>
+
+                    <div className='m-3 p-3 border rounded d-inline'>
+                        Solicitud de vacaciones
+                    </div>
+
+                    <div className='m-3 p-3 border rounded d-inline'>
+                        Ausentismo (Permisos)
+                    </div>
+
+                    <div className='m-3 p-3 border rounded d-inline'>
+                        Trabajo en casa
+                    </div>
+
+                    <div className='m-3 p-3 border rounded d-inline'>
+                        Solicitudes de retiro cesantías
+                    </div>
+
+                    <div className='m-3 p-3 border rounded d-inline'>
+                        Certificados laborales
+                    </div>
                 </div>
             </div>
             <Footer />
