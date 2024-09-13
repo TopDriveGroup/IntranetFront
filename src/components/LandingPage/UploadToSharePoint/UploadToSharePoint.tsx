@@ -8,7 +8,11 @@ import { sendDocumentToSharePoint } from '../../../redux/SharePoint/actions';
 //ELEMENTOS DEL COMPONENTE
 import styles from './styles.module.css';
 
-function UploadToSharePoint() {
+interface UploadToSharePointProps {
+    addNotification: (type: 'success' | 'error', message: string) => void;
+}
+
+function UploadToSharePoint({ addNotification }: UploadToSharePointProps) {
     // REDUX
     const dispatch: AppDispatch = useDispatch();
     const sharePointErrors = useSelector((state: RootState) => state.sharePoint.sharePointErrors);
@@ -26,6 +30,7 @@ function UploadToSharePoint() {
                 formData.append('attachmentName', fileName); 
                 dispatch(sendDocumentToSharePoint(formData));
                 setFormSubmitted(true);
+                addNotification('success', 'Archivo almacenado con éxito!');
             }
         } catch {
             throw new Error('Error al enviar el archivo');
