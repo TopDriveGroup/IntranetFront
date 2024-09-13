@@ -3,7 +3,7 @@ import { AppDispatch } from '../store';
 import axiosInstance from '../../api/axios';
 import { sendDocumentToSharePointStart, setDocumentToSharePointErrors } from './sharePointSlice';
 
-// Enviar archivo a SharePoint
+// ALMACENAR ARCHIVOS EN SHAREPOINT SEGUN EL AREA
 export const sendDocumentToSharePoint = (formData: FormData) => async (dispatch: AppDispatch) => {
     try {
         dispatch(sendDocumentToSharePointStart());
@@ -16,3 +16,5 @@ export const sendDocumentToSharePoint = (formData: FormData) => async (dispatch:
         }
     }
 };
+
+// CONSULTAR ARCHIVOS EN SHAREPOINT SEGUN EL AREA
