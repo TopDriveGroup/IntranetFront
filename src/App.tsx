@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles.css';
 // GENERALES
 import WhatsApp from './components/WhatsApp/WhatsApp';
 import Scroll from './components/Scroll/Scroll';
+import Notification from './components/Notifications/Notification';
 // LANDINGPAGE
 import LoginPage from './pages/Landing/01NavBar/00PreNavBar/03LoginColaborators/LoginPage';
 
@@ -88,18 +90,33 @@ import QualityPage from './pages/Landing/01NavBar/07Requests/02Quality/QualityPa
 import Error404 from './pages/Error404/Error404';
 
 function App() {
+    const [notifications, setNotifications] = useState<{ id: number; type: 'success' | 'delete' | 'error'; message: string }[]>([]);
+
+    const addNotification = (type: 'success' | 'delete' | 'error', message: string) => {
+      const id = Date.now();
+      setNotifications([...notifications, { id, type, message }]);
+  
+      setTimeout(() => {
+        setNotifications((notifications) => notifications.filter(notification => notification.id !== id));
+      }, 5000);
+    };
 
     return (
         <div>
             <BrowserRouter>
                 <WhatsApp />
                 <Scroll />
+                <div className="notification__Container">
+                    {notifications.map(({ id, type, message }) => (
+                        <Notification key={id} type={type} message={message} onClose={() => setNotifications(notifications.filter(notification => notification.id !== id))} />
+                    ))}
+                </div>
                 <Routes>
                     {/* ----------LANDINGPAGE---------- */}
                     <Route path='/login' element={<LoginPage />} />
                     <Route element={<ProtectedRoute />}>
                     {/* PROTECTED ROUTES */}
-                        <Route path='/' element={<LandingPage />} />
+                        <Route path='/' element={<LandingPage addNotification={addNotification}/>} />
                         <Route path='/sig' element={<SIGPage />} />
                         {/* ----------SIG OPERACIONES---------- */}
                         <Route path='/sig/operations' element={<OperationsPage />} />
