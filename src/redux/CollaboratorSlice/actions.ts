@@ -20,6 +20,13 @@ export const postCollaboratorRegister = (formData: ICollaborator) => async (disp
     }
 };
 
+//VERIFICA EL TOKEN CADA QUE ENTRE A UNA RUTA PROTEGIDA
+export const verifyTokenRequest = (token: string) => {
+    return axiosInstance.get(`/auth/verify-token`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+};
+
 //LOGIN DE USUARIOS
 export const loginUser = (loginData: { corporateEmail: string; password: string }) => async (dispatch: AppDispatch) => {
     try {
@@ -55,12 +62,6 @@ export const getProfileCollaborator = (token: string) => async (dispatch: AppDis
     }
 };
 
-//VERIFICA EL TOKEN CADA QUE ENTRE A UNA RUTA PROTEGIDA
-export const verifyTokenRequest = (token: string) => {
-    return axiosInstance.get(`/auth/verify-token`, {
-        headers: { Authorization: `Bearer ${token}` },
-    });
-};
 
 //PERFIL DE USUARIO
 export const getCollaboratorProfile = (token: string) => async (dispatch: AppDispatch) => {
