@@ -40,9 +40,9 @@ function LoginPage() {
 
     useEffect(() => {
         if (isAuthenticated) {
-            if (token) navigate("/");
+            if (token) navigate("/home");
         }
-    }, [ isAuthenticated ]);
+    }, [isAuthenticated, token]);
 
     return (
         <div className="d-flex align-items-center justify-content-center">
@@ -94,7 +94,6 @@ function LoginPage() {
                             </button>
                         </form>
 
-                        <p className='m-0 text-center'>¿No tienes cuenta? <Link to="/register" className={`${styles.link} text-sky-500 text-decoration-none`}>Regístrate acá</Link></p>
                         <p className='text-center'><Link to="/reset-password" className={`${styles.link} text-sky-500 text-decoration-none`}>¿Has olvidado la contraseña?</Link></p>
                     </div>
                 </div>
