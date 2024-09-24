@@ -1,5 +1,77 @@
 .container {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 0 auto 50px auto;
-    width: 1200px;
+    background: #f8f9fa;
+    margin: 50px auto;
+    width: 100%;
 }
+.container__Component {
+    width: 1200px;
+    height: 300px;
+}
+.aaaaaaaaa {
+    width: 300px;
+    height: 100%;
+}
+.title__Section {
+    font-family: 'montserratbold', sans-serif;
+}
+.bbbbbbb {
+    display: flex;
+    width: 650px;
+    gap: 4px; /* Espacio entre las imágenes */
+}
+.container__Brigader {
+    border-radius: 20px;
+    height: 300px;
+    flex-grow: 1; /* Para que las imágenes crezcan proporcionalmente */
+    transition: flex-grow 0.5s ease; /* Transición suave del ancho */
+}
+.container__Brigader:hover {
+    flex-grow: 2; /* La imagen en hover ocupará más espacio */
+}
+.container__Brigader:not(:hover) {
+    flex-grow: 1; /* Las demás imágenes tendrán menos espacio */
+}
+.uno, .dos, .tres {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: local;
+    box-sizing: border-box;
+    background-position: center;
+    transition: background-position 0.5s ease, transform 0.5s ease; /* Transiciones suaves para la imagen */
+}
+.container__Brigader:hover .uno,
+.container__Brigader:hover .dos,
+.container__Brigader:hover .tres {
+    background-position: 0px 0px;
+    transform: scale(1.05); /* Zoom leve en la imagen cuando se hace hover */
+}
+.uno {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(16, 16, 16, 0.1)), url('../../../assets//Landing//03OccupationalSafety/Uno.png');
+}
+.dos {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(16, 16, 16, 0.1)), url('../../../assets//Landing//03OccupationalSafety/Dos.png');
+}
+.tres {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(16, 16, 16, 0.1)), url('../../../assets//Landing//03OccupationalSafety/Tres.png');
+}
+.continer__Info {
+    z-index: 1;
+    bottom: 15px;
+    padding: 10px;
+}
+.collaborator {
+    font-family: 'montserratbold', sans-serif;
+    color: #fff;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.title__Position {
+    color: #fff;
+}
+
+
+/* background-position: 50% 50%;
+background-position: top right; */

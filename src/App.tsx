@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './styles.css';
 // GENERALES
 import WhatsApp from './components/WhatsApp/WhatsApp';
@@ -113,10 +113,11 @@ function App() {
                 </div>
                 <Routes>
                     {/* ----------LANDINGPAGE---------- */}
+                    <Route path="/" element={<Navigate to="/login" replace />} />
                     <Route path='/login' element={<LoginPage />} />
                     <Route element={<ProtectedRoute />}>
                     {/* PROTECTED ROUTES */}
-                        <Route path='/' element={<LandingPage addNotification={addNotification}/>} />
+                        <Route path='/home' element={<LandingPage addNotification={addNotification}/>} />
                         <Route path='/sig' element={<SIGPage />} />
                         {/* ----------SIG OPERACIONES---------- */}
                         <Route path='/sig/operations' element={<OperationsPage />} />
